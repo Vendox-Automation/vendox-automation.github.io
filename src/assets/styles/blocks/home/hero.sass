@@ -22,7 +22,8 @@
     &__image
         position: relative
         z-index: 2
-        border-bottom: 1px solid var(--primary)
+        width: 100%
+        height: auto
 
     &__content, &__illustrations
         flex: 1 1 0
@@ -36,7 +37,7 @@
         min-width: 300px
 
         font:
-            size: 32px
+            size: clamp(24px, 4vw, 36px)
             weight: 600
         
         span 
