@@ -63,7 +63,7 @@ const techIconMap = {
 const customIcons = {
     excel: "https://img.icons8.com/color/48/microsoft-excel-2019.png",
     sheets: "https://img.icons8.com/color/48/google-sheets.png",
-    selenium: "https://img.icons8.com/color/48/selenium.png",
+    selenium: "https://skillicons.dev/icons?i=selenium",
     facebook: "https://img.icons8.com/color/48/facebook-new.png",
 };
 
