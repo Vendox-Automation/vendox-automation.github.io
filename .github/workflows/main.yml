@@ -33,6 +33,7 @@ jobs:
       - name: Deploy to GH Page
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
+<<<<<<< HEAD
           path: ./dist
 
   deploy:
@@ -45,3 +46,8 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+=======
+          branch: gh-pages
+          folder: dist
+          single-commit: false
+>>>>>>> parent of d9db596 (Update main.yml)
