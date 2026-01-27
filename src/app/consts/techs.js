@@ -33,8 +33,4 @@ export default {
     deno: "Deno",
     pixijs: "PixiJS",
     preact: "Preact",
-    selenium: "Selenium",
-    excel: "Excel",
-    sheets: "Google Sheets",
-    facebook: "Facebook",
 }

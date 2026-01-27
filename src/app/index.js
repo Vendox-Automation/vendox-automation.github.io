@@ -2,7 +2,6 @@ import Layout from "./views/Layout";
 import routes from "./consts/routes";
 import startTitleAnimation from "./helpers/startTitleAnimation";
 import localeHandler from "./helpers/localeHandler";
-import searchHandler from "./helpers/searchHandler";
 import loadCssFile from "./helpers/loadCssFile";
 import replacePath from "./helpers/replacePath";
 
@@ -25,6 +24,4 @@ async function render() {
 
 replacePath()
     .then(() => render())
-    .then(() => localeHandler())
-    .then(() => searchHandler());
-
+    .then(() => localeHandler());

@@ -1,21 +1,12 @@
 .path
     align-self: start
     display: block
+    
     width: 100%
-
-    &__content
-        display: flex
-        justify-content: space-between
-        align-items: flex-end
-        width: 100%
-        gap: 32px
-        @media (max-width: $tabletScreen)
-            flex-direction: column
-            align-items: flex-start
 
     &__name
         font: 
-            size: clamp(24px, 3.5vw, 32px)
+            size: 32px
             weight: 600
         
         &::before
@@ -24,63 +15,4 @@
 
     &__description
         color: var(--gray)
-        margin-top: 8px
-
-.filter-bar
-    &__search
-        position: relative
-        width: 250px
-        @media (max-width: $tabletScreen)
-            width: 100%
-
-    &__input
-        width: 100%
-        background: transparent
-        border: 1px solid var(--gray)
-        color: #fff
-        padding: 8px 16px
-        font-family: inherit
-        transition: border-color 0.3s
-        
-        &:focus
-            outline: none
-            border-color: var(--primary)
-            
-            & + .filter-bar__dropdown
-                opacity: 1
-                visibility: visible
-                transform: translateY(0)
-
-    &__dropdown
-        position: absolute
-        top: 100%
-        right: 0
-        left: 0
-        background: var(--background)
-        border: 1px solid var(--primary)
-        margin-top: 4px
-        padding: 16px
-        opacity: 0
-        visibility: hidden
-        transform: translateY(-10px)
-        transition: all 0.3s
-        z-index: 100
-        box-shadow: 0 10px 20px rgba(0,0,0,0.5)
-
-    &__dropdown-content
-        display: flex
-        flex-direction: column
-        gap: 8px
-
-    .filter-category
-        padding: 6px 12px
-        cursor: pointer
-        font-size: 14px
-        color: var(--gray)
-        transition: all 0.2s
-        border-bottom: 1px solid rgba(var(--gray-rgb), 0.1)
-
-        &:hover
-            color: var(--primary)
-            background: rgba(var(--primary-rgb), 0.05)
-            padding-left: 16px
+        margin-top: 16px

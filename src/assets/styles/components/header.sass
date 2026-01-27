@@ -1,6 +1,29 @@
 
 $screen: 768px
 
+.media-header 
+    position: fixed
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    left: 16px
+    gap: 8px
+    top: 0px
+
+    @media (max-width: $desktopScreen) 
+        display: none
+    
+
+    &__links 
+        display: grid
+        grid-auto-columns: 1fr
+
+    &__line 
+        width: 1px
+        height: 33vh
+        background-color: var(--gray)
+        display: block
 
 .hamburger
     width: 32px
@@ -87,7 +110,7 @@ $screen: 768px
 
 .header 
     padding:
-        top: 24px
+        top: 32px
         bottom: 8px
     background-color: var(--background)
     position: fixed

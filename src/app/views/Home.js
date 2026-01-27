@@ -1,5 +1,4 @@
 import Hero from "@/blocks/home/Hero.js";
-import TrustBadges from "@/blocks/home/TrustBadges.js";
 import Quote from "@/blocks/home/Quote.js";
 import Projects from "@/blocks/home/Projects.js";
 import Skills from "@/blocks/home/Skills.js";
@@ -12,7 +11,6 @@ import "styles/pages/home.sass"
 export default (t, locale) => {
     return /*html*/`
         ${Hero(t.hero)}
-        ${TrustBadges()}
         ${Quote(t.quote)}
         ${Projects(t.projects, locale.projects)}
         ${Skills(t.skills, locale.skills)}
@@ -20,4 +18,3 @@ export default (t, locale) => {
         ${Contacts(t.contacts)}
     `;
 };
-

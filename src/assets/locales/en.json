@@ -2,12 +2,12 @@
     "header": {
         "home": "home",
         "projects": "projects",
-        "about": "about-us",
+        "about": "about-me",
         "contacts": "contacts"
     },
     "footer": {
-        "description": "Automation solutions and workflow optimization specialized in web tools",
-        "copyright": "Copyright 2026. Made by vendox-automation",
+        "description": "Web designer and front-end developer based in Ukraine",
+        "copyright": "Copyright 2023. Made by Elias",
         "media": "Media"
     },
     "skills": {
@@ -18,120 +18,123 @@
         "framework": "Frameworks"
     },
     "projects": {
-        "angkasa": {
-            "name": "Angkasa Automation",
-            "description": "Automated download and upload of reports, misalignment identification, and member repayment transaction insertion for streamlined workflows."
+        "chertnodes": {
+            "name": "ChertNodes",
+            "description": "Minecraft servers hosting"
         },
-        "onesignal-subs-scraper": {
-            "name": "OneSignal Subs Scraper",
-            "description": "Efficiently scrapes OneSignal subscription data per page to reduce manual monitoring and cognitive load for CRM management."
+        "protectx": {
+            "name": "ProtectX web",
+            "description": "Discord anti-crash bot"
         },
-        "onesignal-domain-inserter": {
-            "name": "OneSignal Domain Inserter",
-            "description": "Automated domain insertion tool achieving a 0% error rate compared to manual human processes, significantly increasing reliability."
+        "khanswers": {
+            "name": "Kahoot Answers",
+            "description": "Get answers from kahoot quiz"
         },
-        "stamplist": {
-            "name": "Stamplist",
-            "description": "High-speed automated loan submission system capable of processing hundreds of submissions in minutes, eliminating scalability bottlenecks."
+        "kotikbot": {
+            "name": "KotikBot",
+            "description": "Landing for multi-functional cute discord bot"
         },
-        "game-arrangement": {
-            "name": "Game Arrangement",
-            "description": "Concurrent automated brand management for game arrangements, reducing processing time by over 80% per brand."
+        "portfolio": {
+            "name": "This Portfolio",
+            "description": "My personal portfolio"
         },
-        "payment-gateway-checker": {
-            "name": "Payment Gateway Checker",
-            "description": "Continuous automated testing and status verification for multiple payment gateways, reducing operational expenses and manual oversight."
+        "blog": {
+            "name": "My blog",
+            "description": "Front-end of my future blog website"
         },
-        "vip-file-updater": {
-            "name": "VIP File Updater",
-            "description": "Scalable automation for VIP file updates, replacing manual 30-minute updates with an efficient 5-minute automated process."
+        "discordbot": {
+            "name": "Discord Bot Boilerplate",
+            "description": "Start creating scalable discord.js bot with typescript in seconds"
         },
-        "account-reconcilator": {
-            "name": "Account Reconcilator",
-            "description": "End-to-end automation for retrieving, filtering, and uploading payment gateway documents to Excel for streamlined reconciliation."
+        "chesspro": {
+            "name": "Chess PRO",
+            "description": "Landing page about service for viewing chess tournaments"
         },
-        "manual-banking": {
-            "name": "Manual Banking",
-            "description": "Automated banking transaction processing from download to summary message, reducing manual data entry time by over 95%."
+        "ooku": {
+            "name": "Ooku",
+            "description": "Link shortener with discord auth"
         },
-        "predictive-dialer-uploader": {
-            "name": "Predictive Dialer List Uploader",
-            "description": "Streamlined automated listing uploader for predictive dialers, replacing complex manual preparation and repeat upload cycles."
+        "madhost": {
+            "name": "MadHost",
+            "description": "Minecraft and websites hosting with low prices"
         },
-        "broadcast-dialer-uploader": {
-            "name": "Broadcast Dialer List Uploader",
-            "description": "Efficient automated broadcast dialer uploader that handles multiple listings concurrently, solving repetitive workflow constraints."
+        "feedrum": {
+            "name": "Feedrum",
+            "description": "Ukrainian social network designed for programmers"
         },
-        "facebook-comment-scraper": {
-            "name": "Facebook Post Comment Scraper",
-            "description": "Advanced concurrent scraper for Facebook post comments that handles processing and data saving with significantly higher efficiency than manual tasks."
+        "deplos": {
+            "name": "Deplos",
+            "description": "Game servers hosting"
+        },
+        "pixel-battle": {
+            "name": "Pixel Battle",
+            "description": "Pixel art battle game"
         }
     },
     "pages": {
         "home": {
             "hero": {
-                "title": "<span>vendox-automation</span> provides <span>automation solutions</span> and <span>custom tools</span>",
-                "description": "We craft efficient workflows where advanced technology meets precision",
-                "button": "Contact US",
-                "status": "Available for new projects"
+                "title": "Elias is a <span>web designer</span> and <span>front-end</span> developer",
+                "description": "He crafts responsive websites where technologies meet creativity",
+                "button": "Contact ME",
+                "status": "Open for new opportunities"
             },
             "quote": {
-                "text": "Efficiency is doing things right; effectiveness is doing the right things.",
-                "author": "Peter Drucker"
+                "text": "With great power comes great electricity bill",
+                "author": "Dr. Who"
             },
             "projects": {
                 "title": "projects",
                 "button": "View all"
             },
             "skills": {
-                "title": "expertise"
+                "title": "skills"
             },
             "about": {
-                "title": "about-us",
+                "title": "about",
                 "description": [
-                    "We are a team of automation specialists focused on streamlining web experiences and professional workflows. We develop responsive tools from scratch and transform them into efficient automated experiences.",
-                    "Transforming complex tasks into simple, automated knowledge has been our passion. We help clients establish a robust digital presence through cutting-edge technologies and frameworks."
+                    "I’m a self-taught front-end developer based in Warsaw, Poland. I can develop responsive websites from scratch and raise them into modern user-friendly web experiences. ",
+                    "Transforming my creativity and knowledge into a websites has been my passion for over two years. I have been helping various clients to establish their presence online. I always strive to learn about the newest technologies and frameworks."
                 ],
                 "button": "View all"
             },
             "contacts": {
                 "title": "contacts",
-                "text": "We are interested in collaboration opportunities. If you have a specific request or question, don’t hesitate to contact us.",
-                "media": "Message us here",
-                "donate": "Support us here"
+                "text": "I’m interested in freelance opportunities. However, if you have other request or question, don’t hesitate to contact me",
+                "media": "Message me here",
+                "donate": "Donate me here"
             }
         },
         "projects": {
-            "description": "All of our projects",
-            "decent": "projects",
-            "small": "tools",
-            "inProgress": "in-progress",
-            "search": "Search projects...",
-            "searchBtn": "Search"
+            "description": "All of my projects",
+            "decent": "decent",
+            "small": "small",
+            "inProgress": "unfinished"
         },
         "about": {
-            "description": "About vendox-automation",
+            "description": "Who am i",
             "about": {
                 "description": [
-                    "We are automation specialists providing high-end workflow solutions. We develop custom tools and raise them into modern user-friendly experiences.",
-                    "Our focus is on delivering scalability and performance. We always strive to leverage the newest technologies to solve real-world problems."
+                    "I’m a self-taught front-end developer based in Warsaw, Poland. I can develop responsive websites from scratch and raise them into modern user-friendly web experiences. ",
+                    "Transforming my creativity and knowledge into a websites has been my passion for over a two years. I have been helping various clients to establish their presence online. ",
+                    "I always strive to learn about the newest technologies and frameworks. "
                 ]
             },
             "skills": {
-                "title": "expertise"
+                "title": "skills"
             },
             "facts": {
-                "title": "our-vibe",
+                "title": "fun-facts",
                 "list": [
-                    "We prioritize clean and scalable code",
-                    "We love solving complex automation puzzles",
-                    "We focus on performance and uptime",
-                    "Innovation is our core mission"
+                    "I like winter more than summer", 
+                    "I often bike with my friends",
+                    "I like pizza and pasta", 
+                    "My favorite movie is The Green Mile"
                 ]
             }
         },
         "contacts": {
-            "description": "How to contact us"
+            "description": "How to contact me"
         }
     }
 }

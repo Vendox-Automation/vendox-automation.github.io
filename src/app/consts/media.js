@@ -2,22 +2,24 @@ import proxy from "../proxies/media"
 
 const media = {
     discord: {
-        id: "vendox-automation", // Updated tag/id placeholder
-        tag: "vendox-automation",
+        id: "914240860101681163",
+        tag: "elias.dev.",
     },
     stackOverflow: {
-        id: "vendox-automation",
-        name: "vendox-automation",
+        id: "19758208",
+        name: "elias",
     },
-    github: "vendox-automation",
-    figma: "vendox_automation",
-    replit: "vendox_automation",
-    codewars: "vendox_automation",
-    devTo: "vendox_automation",
-    cssBattle: "vendox_automation",
-    codepen: "vendox_automation",
-    dribble: "vendox_automation",
-    email: "contact@vendox-automation.com"
+    github: "EliasDevis",
+    figma: "elias_dev",
+    replit: "EliasDev",
+    codewars: "EliasDevis",
+    devTo: "eliasdevis",
+    cssBattle: "elias_dev",
+    codepen: "elias_dev",
+    dribble: "Elias_dev",
+    email: "elias.devis@protonmail.com"
+
 }
 
 export default new Proxy(media, proxy);
+

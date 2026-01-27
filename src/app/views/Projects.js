@@ -6,8 +6,7 @@ import "styles/pages/projects.sass"
 export default (t, t2) => {
     return /*html*/ `
         ${Path({ description: t.description })}
-        ${ProjectList({ filter: (p) => !p.isInProgress }, t2.projects)}
+        ${ProjectList({ title: t.decent, filter: (p) => !p.isSmall }, t2.projects)}
+        ${ProjectList({ title: t.small, filter: (p) => p.isSmall && !p.isInProgress }, t2.projects)}
     `;
 };
-
-
