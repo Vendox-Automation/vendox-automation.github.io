@@ -1,40 +1,37 @@
-name: Deploy to GitHub Pages
+name: Build and GH-Page Deploy
 
 on:
   push:
-    branches: ["main"]
-  workflow_dispatch:
+    branches:
+      - main
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/checkout@v2
         with:
-          node-version: 22
-          cache: 'npm'
+          persist-credentials: false
 
-      - name: Install dependencies
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with: 
+          node-version: 16.15
+
+      - name: Install
         run: npm install
 
       - name: Build
         run: npm run build
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to GH Page
+        uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
           path: ./dist
 
