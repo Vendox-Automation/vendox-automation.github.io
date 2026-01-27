@@ -261,7 +261,7 @@ eval("{__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-ext
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "js/" + {"src_app_views_About_js":"20c60363ce91311cd226","src_app_views_Contacts_js":"d400fe4896bbfaf25d56","src_app_views_Home_js":"39207f2072748a844b44","src_app_views_PageNotFound_js":"889f973003c86d2b46df","src_app_views_Projects_js":"1f32415e12de5c144e65"}[chunkId] + ".js";
+/******/ 			return "js/" + {"src_app_views_About_js":"20c60363ce91311cd226","src_app_views_Contacts_js":"d400fe4896bbfaf25d56","src_app_views_Home_js":"40667e772983edc0790d","src_app_views_PageNotFound_js":"889f973003c86d2b46df","src_app_views_Projects_js":"f0a2a8c304864fbd489f"}[chunkId] + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
