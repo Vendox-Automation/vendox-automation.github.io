@@ -64,25 +64,16 @@ $screen: 768px
                 width: 100vw
                 height: 100vh
 
-                .dropdown
+                .header__inner
+                    align-items: start
+
+                .header__links
                     display: flex
                     position: absolute
-                    bottom: -16px
-                    font-size: 24px
+                    flex-direction: column
+                    bottom: -32px
                     transform: translateY(100%)
-                    right: 0
-
-                .header
-                    &__inner
-                        align-items: start
-
-                    &__links
-                        display: flex
-                        position: absolute
-                        flex-direction: column
-                        bottom: -32px
-                        transform: translateY(100%)
-                        font-size: 24px
+                    font-size: 24px
 
 
 .header 
@@ -131,7 +122,8 @@ $screen: 768px
     @media (max-width: $desktopScreen) 
         padding-top: 16px
 
-        &__links, .dropdown
+        &__links
             display: none
+
 
         

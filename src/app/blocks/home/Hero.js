@@ -1,5 +1,3 @@
-import Dots from "@/components/Dots";
-
 export default (t) => {
     return /*html*/ `
         <section class="hero">
@@ -10,8 +8,6 @@ export default (t) => {
             </div>
             <div class="hero__illustrations">
                 <img src="/images/hero.png" alt="vendox-automation" class="hero__image">
-                <div class="hero__status">${t.status}</div>
-                ${Dots({})}
             </div>
         </section>
     `;

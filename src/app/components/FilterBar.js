@@ -1,7 +1,7 @@
 import techs from "@/consts/techs";
 
 export default () => {
-    const popularTechs = ['python', 'js', 'react', 'node', 'ts'];
+    const popularTechs = ['chrome', 'telegram', 'js', 'react', 'node', 'ts'];
 
     return /*html*/`
         <div class="filter-bar container">

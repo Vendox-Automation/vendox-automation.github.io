@@ -109,6 +109,9 @@
             "search": "Search projects...",
             "searchBtn": "Search"
         },
+        "projectdetails": {
+            "description": "Detailed project information and automation metrics"
+        },
         "about": {
             "description": "About vendox-automation",
             "about": {

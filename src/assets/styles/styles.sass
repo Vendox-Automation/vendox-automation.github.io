@@ -6,7 +6,6 @@
 @import components/header
 @import components/footer
 @import components/button
-@import components/dropdown
 @import components/mediaIcon
 @import components/path
 @import components/h2
@@ -15,4 +14,4 @@
 
 :root
     @each $key, $value in $colors
-        --#{$key}: hsl(#{$value})
+        --#{"" + $key}: hsl(#{$value})

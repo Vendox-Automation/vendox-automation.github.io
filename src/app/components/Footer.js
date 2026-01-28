@@ -17,14 +17,7 @@ export default (t) => {
 
                         <p class="footer__description">${t.description}</p>
                     </div>
-                    <div class="footer__media">
-                        <div class="footer__title">${t.media}</div>
-                        <div class="footer__list">
-                            ${["figma", "github", "discord"]
-            .map((name) => MediaIcon({ name }))
-            .join("")}
-                        </div>
-                    </div>
+
                 </div>
                 <div class="footer__copyright">© ${t.copyright}</div>
             </div>

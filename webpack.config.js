@@ -13,8 +13,9 @@ module.exports = {
     },
     output: {
         path: resolve(__dirname, "dist"),
-        filename: "js/[name].js",
-        chunkFilename: "js/[chunkhash].js"
+        filename: "[name].js",
+        chunkFilename: "[chunkhash].js",
+        publicPath: "/"
     },
     mode: "development",
     plugins: [
@@ -34,12 +35,21 @@ module.exports = {
             chunks: ["spaHandler"]
         }),
         new plugins.css({
-            filename: "css/[name].css",
+            filename: "[name].css",
             chunkFilename: (pathData) => {
-                if (typeof pathData.chunk.id === "number") return "css/[name].css"
-                const name = pathData.chunk.id.split("_").at(-2).toLowerCase()
+                let name = pathData.chunk.name;
 
-                return `css/${name}.css`
+                if (!name) {
+                    if (typeof pathData.chunk.id === "string") {
+                        name = pathData.chunk.id.split("_").at(-2);
+                    } else {
+                        name = "style";
+                    }
+                }
+
+                if (!name) name = "style";
+
+                return `${name.toString().toLowerCase()}.css`
             }
         }),
         new plugins.copy({
@@ -52,8 +62,20 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(sass)$/,
-                use: [plugins.css.loader, "css-loader", "sass-loader"],
+                test: /\.(sass|scss)$/,
+                use: [
+                    plugins.css.loader,
+                    "css-loader",
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            api: "modern",
+                            sassOptions: {
+                                quietDeps: true,
+                            },
+                        },
+                    },
+                ],
                 include: [
                     join(__dirname, "src/assets/styles")
                 ]
@@ -93,11 +115,13 @@ module.exports = {
             directory: join(__dirname, 'dist'),
         },
         port: 9000,
-        historyApiFallback: {
-            rewrites: [
-                { from: /./, to: "/404.html" },
-            ],
-        }
+        historyApiFallback: true,
+        client: {
+            overlay: {
+                errors: true,
+                warnings: false,
+            },
+        },
     },
 
     resolve: {

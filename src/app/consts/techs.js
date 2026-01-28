@@ -37,4 +37,7 @@ export default {
     excel: "Excel",
     sheets: "Google Sheets",
     facebook: "Facebook",
+    onesignal: "OneSignal",
+    chrome: "Chrome",
+    telegram: "Telegram",
 }

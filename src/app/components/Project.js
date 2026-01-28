@@ -65,6 +65,9 @@ const customIcons = {
     sheets: "https://img.icons8.com/color/48/google-sheets.png",
     selenium: "https://skillicons.dev/icons?i=selenium",
     facebook: "https://img.icons8.com/color/48/facebook-new.png",
+    onesignal: "https://play-lh.googleusercontent.com/hI34BLUTp8l-oPdHHsTYSu44sWG-0N7xMmfTbldFUjb8tI0LSDoahrHQiXYjlLHIHTI",
+    chrome: "https://cdn-icons-png.flaticon.com/512/732/732205.png",
+    telegram: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/960px-Telegram_logo.svg.png",
 };
 
 
@@ -89,7 +92,7 @@ export default ({ id }, t) => {
 
             <div class="project__content">
                 <div class="project__header">
-                    <div class="project__name">${t[id].name}</div>
+                    <a href="/project/${id}" class="project__name">${t[id].name}</a>
                     <div class="project__tech-logos">
                         ${projectTech
             .map((tech) => {
