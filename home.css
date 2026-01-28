@@ -1,6 +1,6 @@
-/*!****************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/assets/styles/pages/home.sass ***!
-  \****************************************************************************************************************************/
+/*!********************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./src/assets/styles/pages/home.sass ***!
+  \********************************************************************************************************************************************************/
 @charset "UTF-8";
 .about {
   display: flex;
@@ -71,20 +71,6 @@
   align-items: center;
   gap: 32px;
   flex-wrap: wrap;
-}
-.hero .dots {
-  position: absolute;
-  top: 40%;
-  width: 12vmin;
-  left: 70%;
-  z-index: 4;
-}
-.hero__logo {
-  position: absolute;
-  width: 30vmin;
-  top: 10%;
-  z-index: 1;
-  aspect-ratio: 1;
 }
 .hero__image {
   position: relative;
@@ -196,59 +182,6 @@
 }
 .quote__author::before {
   content: "- ";
-}
-
-.skills {
-  width: 100%;
-}
-.skills__content {
-  display: flex;
-  gap: 32px;
-  flex-wrap: wrap;
-}
-.skills .skill-block {
-  margin-bottom: 16px;
-}
-.skills__list {
-  column-gap: 16px;
-  columns: 3;
-}
-@media (max-width: 768px) {
-  .skills__list {
-    columns: 2;
-  }
-}
-@media (max-width: 500px) {
-  .skills__list {
-    columns: 1;
-  }
-}
-.skills__illustrations, .skills__list {
-  flex: 1 1 0;
-}
-
-.illustrations {
-  position: relative;
-  min-width: 300px;
-  min-height: 300px;
-}
-.illustrations__logo {
-  width: 14vmin;
-  top: 30%;
-  position: absolute;
-  left: 70%;
-}
-.illustrations .dots:nth-of-type(2) {
-  width: 16vmin;
-  top: 70%;
-  left: 10%;
-  position: absolute;
-}
-.illustrations .dots:nth-of-type(1) {
-  width: 10vmin;
-  top: 20%;
-  left: 40%;
-  position: absolute;
 }
 
 .trust-badges {
@@ -392,28 +325,4 @@
   gap: 16px;
   align-items: start;
   margin-top: 32px;
-}
-
-.skill-block {
-  border: 1px solid var(--gray);
-  display: inline-block;
-  max-width: 300px;
-  min-width: 200px;
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: 0;
-}
-.skill-block__name {
-  font-weight: 600;
-  padding: 8px;
-  border-bottom: 1px solid var(--gray);
-}
-.skill-block__list {
-  padding: 8px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: start;
-  align-items: start;
-  color: var(--gray);
 }

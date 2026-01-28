@@ -1,35 +1,35 @@
-/*!************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/assets/styles/styles.sass ***!
-  \************************************************************************************************************************/
+/*!****************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./src/assets/styles/styles.sass ***!
+  \****************************************************************************************************************************************************/
 @font-face {
   font-family: "Fira Code";
   font-weight: 300;
   font-style: normal;
-  src: url(../fonts/a81da37f7831691b78df.woff) format("woff");
+  src: url(/fonts/a81da37f7831691b78df.woff) format("woff");
 }
 @font-face {
   font-family: "Fira Code";
   font-weight: 400;
   font-style: normal;
-  src: url(../fonts/a25d3a54ca0de3944eb7.woff) format("woff");
+  src: url(/fonts/a25d3a54ca0de3944eb7.woff) format("woff");
 }
 @font-face {
   font-family: "Fira Code";
   font-weight: 500;
   font-style: normal;
-  src: url(../fonts/97af194ae4a793b66f40.woff) format("woff");
+  src: url(/fonts/97af194ae4a793b66f40.woff) format("woff");
 }
 @font-face {
   font-family: "Fira Code";
   font-weight: 600;
   font-style: normal;
-  src: url(../fonts/4558fb863ac61e930234.woff) format("woff");
+  src: url(/fonts/4558fb863ac61e930234.woff) format("woff");
 }
 @font-face {
   font-family: "Fira Code";
   font-weight: 700;
   font-style: normal;
-  src: url(../fonts/e3428b597c378e1fdcb0.woff) format("woff");
+  src: url(/fonts/e3428b597c378e1fdcb0.woff) format("woff");
 }
 html,
 body,
@@ -184,14 +184,6 @@ body, html {
     width: 100vw;
     height: 100vh;
   }
-  .hamburger:checked ~ .container .dropdown {
-    display: flex;
-    position: absolute;
-    bottom: -16px;
-    font-size: 24px;
-    transform: translateY(100%);
-    right: 0;
-  }
   .hamburger:checked ~ .container .header__inner {
     align-items: start;
   }
@@ -247,7 +239,7 @@ body, html {
   .header {
     padding-top: 16px;
   }
-  .header__links, .header .dropdown {
+  .header__links {
     display: none;
   }
 }
@@ -257,6 +249,7 @@ body, html {
   width: 100%;
   border-top: 1px solid var(--gray);
   padding-top: 32px;
+  margin-top: 100px;
   margin-bottom: 16px;
 }
 .footer__copyright {
@@ -307,54 +300,6 @@ body, html {
 }
 .button__secondary:hover {
   background-color: var(--gray-op);
-}
-
-.dropdown {
-  color: var(--gray);
-  position: relative;
-}
-.dropdown:hover .dropdown__list {
-  display: flex;
-}
-.dropdown__label {
-  cursor: pointer;
-  text-transform: uppercase;
-}
-.dropdown__label::after {
-  content: "V";
-  display: inline-block;
-  scale: 1 0.3;
-  font-weight: 500;
-  margin-left: 4px;
-}
-.dropdown__label:hover {
-  color: var(--white);
-}
-.dropdown__label:hover::after {
-  rotate: 180deg;
-}
-.dropdown__list {
-  display: none;
-  flex-direction: column;
-  border: 1px solid var(--gray);
-  position: absolute;
-  background-color: var(--background);
-  bottom: 0;
-  transform: translateY(100%);
-}
-.dropdown__option {
-  cursor: pointer;
-  padding: 8px;
-  text-transform: uppercase;
-}
-.dropdown__option:hover {
-  color: var(--white);
-}
-.dropdown__option:first-child {
-  padding-bottom: 4px;
-}
-.dropdown__option:nth-child(2) {
-  padding-top: 4px;
 }
 
 .media {
@@ -500,6 +445,7 @@ body, html {
 
 .content {
   margin-top: 80px;
+  padding-bottom: 100px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -509,14 +455,16 @@ body, html {
 
 .logo {
   display: flex;
-  gap: 8px;
+  gap: 12px;
+  align-items: center;
 }
 .logo__img {
   aspect-ratio: 1;
-  width: 16px;
+  width: 32px;
 }
 .logo__name {
   font-weight: 700;
+  font-size: 1.2rem;
 }
 
 :root {
