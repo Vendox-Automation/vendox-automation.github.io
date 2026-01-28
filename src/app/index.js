@@ -3,6 +3,7 @@ import routes from "./consts/routes";
 import startTitleAnimation from "./helpers/startTitleAnimation";
 import searchHandler from "./helpers/searchHandler";
 import loadCssFile from "./helpers/loadCssFile";
+import replacePath from "./helpers/replacePath";
 
 import "styles/styles.sass";
 
@@ -68,7 +69,28 @@ async function render() {
     }
 }
 
-render()
+replacePath()
+    .then(() => render())
     .then(() => searchHandler())
     .catch(err => console.error("Initialization error:", err));
+
+// Global Link Interceptor for SPA routing
+window.addEventListener("click", (e) => {
+    const link = e.target.closest("a");
+    if (
+        link &&
+        link.href &&
+        link.href.startsWith(window.location.origin) &&
+        !link.getAttribute("target")
+    ) {
+        e.preventDefault();
+        window.history.pushState(null, null, link.href);
+        render().then(() => searchHandler());
+    }
+});
+
+// Handle Back/Forward buttons
+window.addEventListener("popstate", () => {
+    render().then(() => searchHandler());
+});
 
