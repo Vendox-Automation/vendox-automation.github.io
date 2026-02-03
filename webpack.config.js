@@ -13,11 +13,12 @@ module.exports = {
     },
     output: {
         path: resolve(__dirname, "dist"),
-        filename: "[name].js",
-        chunkFilename: "[chunkhash].js",
-        publicPath: "/"
+        filename: "[name].[contenthash].js",
+        chunkFilename: "[name].[contenthash].js",
+        publicPath: "/",
+        clean: true
     },
-    mode: "development",
+    mode: "production",
     plugins: [
         new plugins.html({
             template: "src/templates/index.ejs",
@@ -35,27 +36,14 @@ module.exports = {
             chunks: ["spaHandler"]
         }),
         new plugins.css({
-            filename: "[name].css",
-            chunkFilename: (pathData) => {
-                let name = pathData.chunk.name;
-
-                if (!name) {
-                    if (typeof pathData.chunk.id === "string") {
-                        name = pathData.chunk.id.split("_").at(-2);
-                    } else {
-                        name = "style";
-                    }
-                }
-
-                if (!name) name = "style";
-
-                return `${name.toString().toLowerCase()}.css`
-            }
+            filename: "[name].[contenthash].css",
+            chunkFilename: "[name].[contenthash].css"
         }),
         new plugins.copy({
             patterns: [
                 { from: "src/assets/images", to: "images" },
                 { from: "src/assets/locales", to: "locales" },
+                { from: "src/assets/.nojekyll", to: "." },
             ],
         })
     ],

@@ -2,7 +2,6 @@ import Layout from "./views/Layout";
 import routes from "./consts/routes";
 import startTitleAnimation from "./helpers/startTitleAnimation";
 import searchHandler from "./helpers/searchHandler";
-import loadCssFile from "./helpers/loadCssFile";
 import replacePath from "./helpers/replacePath";
 import revealHandler from "./helpers/revealHandler";
 
@@ -31,7 +30,6 @@ async function render() {
 
         console.log("[Router] Final route choice:", path);
 
-        loadCssFile(path.name);
         startTitleAnimation(path.name);
 
         console.log(`[Router] Importing view: ./views/${path.element}`);
