@@ -22,7 +22,17 @@ export default () => {
 
             const isVisible = !query || matchesName || matchesTech;
 
-            p.style.display = isVisible ? 'flex' : 'none';
+            if (isVisible) {
+                if (p.style.display === 'none') {
+                    p.style.display = 'flex';
+                    // Soft reset for animation
+                    p.style.animation = 'none';
+                    p.offsetHeight;
+                    p.style.animation = '';
+                }
+            } else {
+                p.style.display = 'none';
+            }
         });
     }
 

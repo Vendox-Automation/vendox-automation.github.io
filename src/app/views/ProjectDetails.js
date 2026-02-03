@@ -58,7 +58,7 @@ export default (t, locale) => {
     }
 
     const name = projectData.name || "Untitled Project";
-    const description = projectData.description || "";
+    const description = projectData.fullDescription || projectData.description || "";
 
     // Default stats if not provided in config
     const stats = projectConfig.stats || {
@@ -72,8 +72,6 @@ export default (t, locale) => {
 
     return /*html*/ `
         <div class="project-details">
-            <div class="project-details__header-bg"></div>
-            
             <div class="container">
                 <a href="/projects" class="project-details__back">
                     <span class="icon"><-</span> Back to Projects
@@ -133,37 +131,8 @@ export default (t, locale) => {
                             </div>
                         </div>
 
-                        ${projectConfig.links && Object.keys(projectConfig.links).length > 0 ? `
-                            <div class="links-card">
-                                <h3 class="links-card__title">Project Resources</h3>
-                                <div class="links-list">
-                                    ${Object.entries(projectConfig.links).map(([key, val]) => `
-                                        <a href="${val}" target="_blank" class="link-item">
-                                            ${key.toUpperCase()} ->
-                                        </a>
-                                    `).join('')}
-                                </div>
-                            </div>
-                        ` : ''}
                     </aside>
                 </div>
-
-                <section class="project-details__impact-visual">
-                    <div class="comparison">
-                        <div class="comparison__side before">
-                            <div class="comparison__label">Before</div>
-                            <div class="comparison__desc">Manual, error-prone, and time-consuming workflows.</div>
-                        </div>
-                        <div class="comparison__arrow">
-                            <div class="arrow-body"></div>
-                            <div class="arrow-head"></div>
-                        </div>
-                        <div class="comparison__side after">
-                            <div class="comparison__label">After</div>
-                            <div class="comparison__desc">Streamlined, 100% accurate, and highly scalable automation.</div>
-                        </div>
-                    </div>
-                </section>
             </div>
         </div>
     `;

@@ -62,4 +62,16 @@
 
             &:hover
                 color: var(--primary)
+
+    @media (max-width: $tabletScreen)
+        flex-direction: column-reverse
+        text-align: center
+        
+        &__content
+            align-items: center
+            display: flex
+            flex-direction: column
+
+        &__title
+            min-width: unset
         

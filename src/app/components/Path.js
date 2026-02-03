@@ -1,7 +1,7 @@
 import techs from "@/consts/techs";
 
 export default ({ description }) => {
-    const popularTechs = ['python', 'selenium', 'excel', 'sheets', 'facebook'];
+    const popularTechs = ['chrome', 'telegram', 'excel', 'sheets', 'facebook'];
     const pathName = window.location.pathname.slice(1);
     const isProjectsPage = pathName === 'projects';
 

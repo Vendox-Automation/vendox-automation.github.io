@@ -4,6 +4,7 @@ import startTitleAnimation from "./helpers/startTitleAnimation";
 import searchHandler from "./helpers/searchHandler";
 import loadCssFile from "./helpers/loadCssFile";
 import replacePath from "./helpers/replacePath";
+import revealHandler from "./helpers/revealHandler";
 
 import "styles/styles.sass";
 
@@ -51,6 +52,20 @@ async function render() {
         const html = await Layout(view, path);
         console.log("[Router] Layout generated successfully. Injecting HTML...");
         root.innerHTML = html;
+
+        // Handle scrolling
+        if (window.location.hash) {
+            const id = window.location.hash.slice(1);
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        } else {
+            window.scrollTo(0, 0);
+        }
+
+        revealHandler();
+
         console.log("[Router] Render complete.");
 
     } catch (error) {
@@ -83,7 +98,26 @@ window.addEventListener("click", (e) => {
         link.href.startsWith(window.location.origin) &&
         !link.getAttribute("target")
     ) {
+        const url = new URL(link.href);
+        const isSamePath = url.pathname === window.location.pathname;
+
+        if (isSamePath && url.hash) {
+            const id = url.hash.slice(1);
+            const element = document.getElementById(id);
+            if (element) {
+                e.preventDefault();
+                window.history.pushState(null, null, link.href);
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+            return;
+        }
+
         e.preventDefault();
+
+        // Close mobile menu if open
+        const hamburger = document.querySelector('.hamburger');
+        if (hamburger) hamburger.checked = false;
+
         window.history.pushState(null, null, link.href);
         render().then(() => searchHandler());
     }

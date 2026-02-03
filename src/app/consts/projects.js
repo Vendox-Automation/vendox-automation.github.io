@@ -7,42 +7,42 @@ const projects = [
         status: "AUTOMATED",
         techs: ["excel", "sheets"],
         links: {},
-        stats: { manual: 120, automated: 5 }
+        stats: { manual: 210, automated: 7 }
     },
     {
         id: "onesignal-subs-scraper",
         status: "AUTOMATED",
         techs: ["onesignal", "sheets"],
         links: { github: "https://github.com/vendox-automation" },
-        stats: { manual: 45, automated: 1 }
+        stats: { manual: 17, automated: 14 }
     },
     {
         id: "onesignal-domain-inserter",
         status: "AUTOMATED",
         techs: ["onesignal", "sheets"],
         links: {},
-        stats: { manual: 30, automated: 1 }
+        stats: { manual: 180, automated: 90 }
     },
     {
         id: "stamplist",
         status: "AUTOMATED",
         techs: ["sheets", "chrome", "telegram"],
         links: {},
-        stats: { manual: 180, automated: 10 }
+        stats: { manual: 18000, automated: 68 }
     },
     {
         id: "game-arrangement",
         status: "AUTOMATED",
         techs: ["chrome", "telegram"],
         links: {},
-        stats: { manual: 90, automated: 15 }
+        stats: { manual: 600, automated: 4 }
     },
     {
         id: "payment-gateway-checker",
         status: "AUTOMATED",
         techs: ["chrome", "telegram"],
         links: {},
-        stats: { manual: 60, automated: 2 }
+        stats: { manual: 15, automated: 1.5 }
     },
     {
         id: "vip-file-updater",
@@ -56,35 +56,35 @@ const projects = [
         status: "AUTOMATED",
         techs: ["sheets", "telegram"],
         links: {},
-        stats: { manual: 150, automated: 12 }
+        stats: { manual: 15, automated: 5 }
     },
     {
         id: "manual-banking",
         status: "AUTOMATED",
         techs: ["excel", "sheets", "chrome"],
         links: {},
-        stats: { manual: 240, automated: 20 }
+        stats: { manual: 10, automated: 0.4 }
     },
     {
         id: "predictive-dialer-uploader",
         status: "AUTOMATED",
         techs: ["excel", "sheets"],
         links: {},
-        stats: { manual: 40, automated: 3 }
+        stats: { manual: 60, automated: 16 }
     },
     {
         id: "broadcast-dialer-uploader",
         status: "AUTOMATED",
         techs: ["excel", "sheets"],
         links: {},
-        stats: { manual: 40, automated: 3 }
+        stats: { manual: 30, automated: 7 }
     },
     {
         id: "facebook-comment-scraper",
         status: "AUTOMATED",
         techs: ["facebook", "sheets", "telegram"],
         links: { github: "https://github.com/vendox-automation" },
-        stats: { manual: 600, automated: 30 }
+        stats: { manual: 660, automated: 78 }
     }
 ];
 

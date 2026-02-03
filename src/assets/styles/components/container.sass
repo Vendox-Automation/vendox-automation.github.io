@@ -10,9 +10,13 @@
 
 .content
     margin-top: 80px
-    padding-bottom: 100px
+    padding-bottom: 24px
     flex: 1
     display: flex
     flex-direction: column
     align-items: center
     gap: 64px
+
+    @media (max-width: $tabletScreen)
+        gap: 48px
+        margin-top: 64px

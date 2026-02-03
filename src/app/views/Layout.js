@@ -7,7 +7,7 @@ export default async (content, path) => {
 
     return /*html*/ `
         ${Header(locale.header)}
-        <div class="container content">
+        <div class="container content page-enter">
             ${content(locale.pages[path.name] || {}, locale)}
         </div>
         ${Footer(locale.footer)}
