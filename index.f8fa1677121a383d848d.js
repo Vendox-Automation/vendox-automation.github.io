@@ -426,7 +426,7 @@ module.exports = webpackAsyncContext;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "" + chunkId + "." + {"245":"713fbe10aad4b5665cff","573":"0052a9a5ba65859a2062","847":"76e181f9cc00211d593c","864":"ebc9d79f95072b0eb1fd","960":"10c4a5b4ab84c3ae58ac"}[chunkId] + ".js";
+/******/ 			return "" + chunkId + "." + {"245":"713fbe10aad4b5665cff","573":"0052a9a5ba65859a2062","847":"76e181f9cc00211d593c","864":"ed9412907146822666cc","960":"10c4a5b4ab84c3ae58ac"}[chunkId] + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -435,7 +435,7 @@ module.exports = webpackAsyncContext;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.miniCssF = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "" + chunkId + "." + {"245":"c527e3ab98d40e3a31dc","847":"3bd8f97c24d691e85b6a","864":"6b495d5c20acf30b289d"}[chunkId] + ".css";
+/******/ 			return "" + chunkId + "." + {"245":"d51af242c1416ddb52fd","847":"3bd8f97c24d691e85b6a","864":"6b495d5c20acf30b289d"}[chunkId] + ".css";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -909,9 +909,18 @@ window.addEventListener("click", (e) => {
             const element = document.getElementById(id);
             if (element) {
                 e.preventDefault();
+                const hamburger = document.querySelector('.hamburger');
+                if (hamburger) hamburger.checked = false;
                 window.history.pushState(null, null, link.href);
                 element.scrollIntoView({ behavior: 'smooth' });
             }
+            return;
+        }
+
+        if (isSamePath && !url.hash) {
+            e.preventDefault();
+            const hamburger = document.querySelector('.hamburger');
+            if (hamburger) hamburger.checked = false;
             return;
         }
 
