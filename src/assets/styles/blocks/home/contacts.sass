@@ -23,6 +23,15 @@
         color: var(--gray)
         max-width: 600px
 
+    @media (max-width: $tabletScreen)
+        &__content
+            flex-direction: column
+            gap: 24px
+
+        &__media
+            width: 100%
+            max-width: unset
+
 .contact
     display: flex
     gap: 8px
@@ -32,17 +41,3 @@
 
     &:hover
         filter: brightness(0) invert(1)
-
-    @media (max-width: $tabletScreen)
-        flex-direction: column
-        align-items: center
-        text-align: center
-
-        &__content
-            flex-direction: column
-            align-items: center
-
-        &__media
-            width: 100%
-            max-width: 320px
-        

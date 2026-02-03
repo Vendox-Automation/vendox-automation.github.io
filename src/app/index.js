@@ -104,9 +104,18 @@ window.addEventListener("click", (e) => {
             const element = document.getElementById(id);
             if (element) {
                 e.preventDefault();
+                const hamburger = document.querySelector('.hamburger');
+                if (hamburger) hamburger.checked = false;
                 window.history.pushState(null, null, link.href);
                 element.scrollIntoView({ behavior: 'smooth' });
             }
+            return;
+        }
+
+        if (isSamePath && !url.hash) {
+            e.preventDefault();
+            const hamburger = document.querySelector('.hamburger');
+            if (hamburger) hamburger.checked = false;
             return;
         }
 

@@ -91,7 +91,7 @@ export default (t, locale) => {
                         </section>
 
                         <section class="project-details__section">
-                            <h2 class="h2 project-details__section-title">Technical Stack</h2>
+                            <h2 class="h2 project-details__section-title">Platforms Involved</h2>
                             <div class="tech-list">
                                 ${projectConfig.techs.map(tech => {
         const icon = getTechIcon(tech);
