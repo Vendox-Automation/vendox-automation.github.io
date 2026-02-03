@@ -9,6 +9,7 @@
   flex-direction: column;
   position: relative;
   overflow: hidden;
+  animation: project-fade-in 0.4s ease-out forwards;
 }
 .project__status {
   position: absolute;
@@ -92,4 +93,15 @@
   gap: 16px;
   align-items: start;
   margin-top: 32px;
+}
+
+@keyframes project-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
