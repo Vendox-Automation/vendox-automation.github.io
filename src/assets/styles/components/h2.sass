@@ -15,10 +15,13 @@
     &::after
         content: ""
         display: block
-        width: 10vw
+        width: 150px
         height: 1px
         background-color: var(--primary)
         position: absolute
         transform: translate(100%, -50%)
         right: -16px
         top: 50%
+
+        @media (max-width: $tabletScreen)
+            width: 80px

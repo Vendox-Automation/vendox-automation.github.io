@@ -91,6 +91,64 @@ export default (t, locale) => {
                         </section>
 
                         <section class="project-details__section">
+                            <h2 class="h2 project-details__section-title">Workflow Optimization</h2>
+                            
+                            <div class="workflow-grid">
+                                <div class="workflow-flows">
+                                    <div class="flow-container before">
+                                        <h3 class="flow-container__subtitle">Before Automation</h3>
+                                        <div class="flow-timeline">
+                                            ${(projectConfig.flow?.before || []).map((step, index) => `
+                                                <div class="flow-step">
+                                                    <div class="flow-step__marker">${index + 1}</div>
+                                                    <div class="flow-step__content">
+                                                        <p class="flow-step__text">${step.text}</p>
+                                                        <span class="flow-step__time">${step.time}</span>
+                                                    </div>
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                        <div class="flow-total">Total: ${manual} min</div>
+                                    </div>
+
+                                    <div class="flow-comparison__divider"></div>
+
+                                    <div class="flow-container after">
+                                        <h3 class="flow-container__subtitle">After Automation</h3>
+                                        <div class="flow-timeline">
+                                            ${(projectConfig.flow?.after || []).map((step, index) => `
+                                                <div class="flow-step">
+                                                    <div class="flow-step__marker">
+                                                        ${index === (projectConfig.flow?.after.length - 1) ? '✓' : index + 1}
+                                                    </div>
+                                                    <div class="flow-step__content">
+                                                        <p class="flow-step__text">${step.text}</p>
+                                                        <span class="flow-step__time">${step.time}</span>
+                                                    </div>
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                        <div class="flow-total">Total: ${stats.automated} min</div>
+                                    </div>
+                                </div>
+
+                                <div class="workflow-sidebar">
+                                    <div class="impact-card">
+                                        <h3 class="impact-card__title">Efficiency Boost</h3>
+                                        <div class="impact-card__chart">
+                                            <div class="circular-progress" style="--p: ${savedPercent}">
+                                                <div class="circular-progress__value">${savedPercent}%</div>
+                                            </div>
+                                        </div>
+                                        <div class="impact-card__footer">
+                                            ${manual - stats.automated} mins saved per cycle
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="project-details__section">
                             <h2 class="h2 project-details__section-title">Platforms Involved</h2>
                             <div class="tech-list">
                                 ${projectConfig.techs.map(tech => {
@@ -106,32 +164,6 @@ export default (t, locale) => {
                             </div>
                         </section>
                     </div>
-
-                    <aside class="project-details__sidebar">
-                        <div class="impact-card">
-                            <h3 class="impact-card__title">Efficiency Boost</h3>
-                            <div class="impact-card__chart">
-                                <div class="circular-progress" style="--p: ${savedPercent}">
-                                    <div class="circular-progress__value">${savedPercent}%</div>
-                                </div>
-                            </div>
-                            <div class="impact-card__stats">
-                                <div class="impact-stat">
-                                    <span class="impact-stat__label">Manual</span>
-                                    <span class="impact-stat__value red">${manual}m</span>
-                                </div>
-                                <div class="impact-stat__divider"></div>
-                                <div class="impact-stat">
-                                    <span class="impact-stat__label">Automated</span>
-                                    <span class="impact-stat__value green">${stats.automated}m</span>
-                                </div>
-                            </div>
-                            <div class="impact-card__footer">
-                                ${manual - stats.automated} mins saved per cycle
-                            </div>
-                        </div>
-
-                    </aside>
                 </div>
             </div>
         </div>

@@ -3,7 +3,7 @@
 
 .project-details
     padding-top: 2rem
-    padding-bottom: 2rem
+    padding-bottom: 5rem
     position: relative
     overflow: hidden
 
@@ -28,24 +28,19 @@
         margin-bottom: 2rem
         
     &__title
-        font-size: clamp(2.5rem, 5vw, 4rem)
+        font-size: clamp(2rem, 8vw, 4rem)
         font-weight: 700
         line-height: 1.1
         color: var(--white)
         margin-bottom: 1rem
+        word-break: break-word
 
     &__grid
-        display: grid
-        grid-template-columns: 1fr 320px
-        gap: 2.5rem
-        align-items: start
+        display: block
         
-        @media (max-width: $tabletScreen)
-            grid-template-columns: 1fr
-            gap: 2rem
-
     &__section
-        margin-bottom: 2.5rem
+        margin-bottom: 3.5rem
+        width: 100%
         
         &-title
             font-size: 1.25rem
@@ -68,8 +63,12 @@
     &__description
         color: var(--gray)
         font-size: 1.1rem
-        line-height: 1.7
+        line-height: 1.8
         white-space: pre-line
+        
+        @media (max-width: $tabletScreen)
+            font-size: 1rem
+            line-height: 1.6
 
     .tech-list
         display: flex
@@ -99,6 +98,34 @@
         width: 20px
         height: 20px
 
+    // Workflow Layout
+    .workflow-grid
+        display: grid
+        grid-template-columns: 1fr 300px
+        gap: 2rem
+        margin-top: 2rem
+        
+        @media (max-width: 1000px)
+            grid-template-columns: 1fr
+
+    .workflow-flows
+        display: flex
+        flex-direction: column
+        gap: 0
+
+    .workflow-sidebar
+        display: flex
+        align-items: center
+        position: sticky
+        top: 100px
+        height: min-content
+        align-self: center
+        
+        @media (max-width: 1000px)
+            position: static
+            justify-content: center
+            margin-top: 2rem
+
     // Sidebar Widgets
     .impact-card
         background: rgba(255, 255, 255, 0.02)
@@ -106,7 +133,15 @@
         border: 1px solid rgba(255, 255, 255, 0.05)
         border-radius: 20px
         padding: 1.5rem
-        margin-bottom: 1.5rem
+        height: 100%
+        display: flex
+        flex-direction: column
+        justify-content: center
+        will-change: transform
+        transform: translateZ(0)
+        
+        @media (max-width: 1000px)
+            padding: 2rem 1.5rem
 
         &__title
             font-size: 1.1rem
@@ -119,43 +154,12 @@
             justify-content: center
             margin-bottom: 1.5rem
 
-        &__stats
-            display: flex
-            justify-content: space-between
-            align-items: center
-            margin-bottom: 1rem
-
         &__footer
             font-size: 0.8rem
             color: var(--gray)
             text-align: center
             padding-top: 1rem
             border-top: 1px solid rgba(255, 255, 255, 0.05)
-
-    .impact-stat
-        text-align: center
-        flex: 1
-        
-        &__label
-            display: block
-            font-size: 0.7rem
-            color: var(--gray)
-            text-transform: uppercase
-            margin-bottom: 0.25rem
-            
-        &__value
-            font-size: 1.1rem
-            font-weight: 700
-            
-            &.red
-                color: #ff6b6b
-            &.green
-                color: #51cf66
-
-        &__divider
-            width: 1px
-            height: 25px
-            background: rgba(255, 255, 255, 0.1)
 
     // Circular Progress
     .circular-progress
@@ -182,3 +186,182 @@
             font-size: 2rem
             font-weight: 800
             color: var(--white)
+
+    .flow-comparison
+        &__divider
+            display: flex
+            justify-content: center
+            align-items: center
+            position: relative
+            padding: 3rem 0
+            
+            &::before
+                content: ''
+                position: absolute
+                left: 0
+                right: 0
+                height: 1px
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent)
+
+    .flow-container
+        background: rgba(255, 255, 255, 0.02)
+        border: 1px solid rgba(255, 255, 255, 0.05)
+        border-radius: 20px
+        padding: 2rem
+        position: relative
+        overflow: hidden
+        transform: translateZ(0)
+        will-change: transform
+        
+        @media (max-width: $tabletScreen)
+            padding: 1.5rem
+        
+        &.before
+            border-top: 4px solid #ff6b6b
+            background: linear-gradient(180deg, rgba(255, 107, 107, 0.03) 0%, rgba(255, 255, 255, 0.02) 100%)
+        
+        &.after
+            border-top: 4px solid #51cf66
+            background: linear-gradient(180deg, rgba(81, 207, 102, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%)
+
+        &__subtitle
+            font-size: 0.8rem
+            text-transform: uppercase
+            letter-spacing: 2px
+            color: var(--gray)
+            margin-bottom: 2rem
+            padding: 0 0.5rem // Align with timeline content
+
+    .flow-timeline
+        display: flex
+        flex-direction: row
+        gap: 2rem
+        overflow-x: auto
+        padding: 1.5rem 0.5rem
+        scroll-behavior: smooth
+        -webkit-overflow-scrolling: touch
+        transform: translateZ(0)
+        will-change: scroll-position
+        position: relative
+        
+        @media (max-width: $tabletScreen)
+            flex-direction: column
+            overflow-x: visible
+            gap: 1.5rem
+            padding: 0.5rem
+        
+        &::-webkit-scrollbar
+            height: 4px
+        &::-webkit-scrollbar-track
+            background: rgba(255, 255, 255, 0.05)
+        &::-webkit-scrollbar-thumb
+            background: rgba(255, 255, 255, 0.1)
+            border-radius: 4px
+
+        &::before
+            content: ''
+            position: absolute
+            left: 0
+            right: 0
+            top: 30px
+            height: 2px
+            background: rgba(255, 255, 255, 0.05)
+            z-index: 0
+            
+            @media (max-width: $tabletScreen)
+                left: 17px
+                right: auto
+                top: 0
+                bottom: 0
+                width: 2px
+                height: 100%
+
+    .flow-step
+        display: flex
+        flex-direction: column
+        gap: 1.5rem
+        align-items: center
+        min-width: 180px
+        text-align: center
+        position: relative
+        z-index: 1
+        
+        @media (max-width: $tabletScreen)
+            flex-direction: row
+            text-align: left
+            min-width: unset
+            gap: 1.5rem
+            align-items: flex-start
+
+        @media (max-width: $mobileScreen)
+            min-width: 150px
+            gap: 1rem
+        
+        &__marker
+            width: 32px
+            height: 32px
+            min-width: 32px
+            border-radius: 50%
+            background: var(--background)
+            border: 2px solid rgba(255, 255, 255, 0.2)
+            color: var(--white)
+            display: flex
+            align-items: center
+            justify-content: center
+            font-size: 0.85rem
+            font-weight: 800
+            z-index: 1
+            position: relative
+            
+        &__content
+            flex: 1
+            display: flex
+            flex-direction: column
+            align-items: center
+            gap: 0.75rem
+            
+            @media (max-width: $tabletScreen)
+                align-items: flex-start
+                gap: 0.5rem
+
+        &__text
+            color: var(--white)
+            font-size: 0.9rem
+            margin: 0
+            line-height: 1.5
+            font-weight: 500
+
+        &__time
+            color: var(--gray)
+            font-size: 0.75rem
+            font-weight: 700
+            background: rgba(255, 255, 255, 0.05)
+            padding: 0.25rem 0.75rem
+            border-radius: 20px
+            text-transform: uppercase
+            letter-spacing: 0.5px
+            white-space: nowrap
+
+    .flow-total
+        margin-top: 2rem
+        text-align: right
+        font-size: 1.1rem
+        font-weight: 700
+        color: var(--white)
+        opacity: 0.8
+        padding: 0 0.5rem // Align with timeline content
+        
+        @media (max-width: $mobileScreen)
+            text-align: center
+            margin-top: 1.5rem
+            font-size: 1rem
+
+    .before .flow-step__marker
+        border-color: #ff6b6b
+        color: #ff6b6b
+        
+    .after .flow-step__marker
+        background: #51cf66
+        border-color: #51cf66
+        color: #000
+        box-shadow: 0 0 10px rgba(81, 207, 102, 0.2)
