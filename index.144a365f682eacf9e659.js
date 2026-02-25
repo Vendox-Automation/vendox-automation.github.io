@@ -1,154 +1,57 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 175
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-    discord: "discord.com/users/",
-    github: "github.com/",
-    figma: "figma.com/@",
-    replit: "replit.com/@",
-    stackOverflow: "stackoverflow.com/users/",
-    codewars: "codewars.com/users/",
-    devTo: "dev.to/",
-    cssBattle: "cssbattle.dev/player/",
-    codepen: "codepen.io/",
-    dribble: "dribbble.com/",
-    email: "mailto:"
-});
-
-/***/ },
-
-/***/ 718
+/***/ 934
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ Layout)
+  A: () => (/* binding */ consts_media)
 });
 
-// EXTERNAL MODULE: ./src/app/consts/media.js + 1 modules
-var consts_media = __webpack_require__(934);
-;// ./src/app/components/MediaIcon.js
+// EXTERNAL MODULE: ./src/app/consts/websites.js
+var websites = __webpack_require__(175);
+;// ./src/app/proxies/media.js
 
 
-/* harmony default export */ const MediaIcon = (({ name }) => {
-    return /*html*/ `
-        <a href="${media[name]}" class="media">
-            <img src="/images/icons/${name}.svg" alt="${name}" class="media__icon"/>
-        </a>`;
+
+/* harmony default export */ const media = ({
+    get(target, name) {
+        if (name === "emailRaw") 
+            return target.email
+        
+        if (name === "discord") return `https://${websites/* default */.A.discord}${target.discord.id}`
+        if (name === "discordTag") return target.discord.tag
+
+        return `${name === "email" ? "" : "https://"}${websites/* default */.A[name] ?? ""}${target[name]}`
+    }
 });
-
-;// ./src/app/components/Footer.js
-
+;// ./src/app/consts/media.js
 
 
-/* harmony default export */ const Footer = ((t) => {
-    return /*html*/ `
-        <footer class="footer">
-            <div class="container">
-                <div class="footer__inner">
-                    <div class="footer__info">
-                        <div class="footer__header">
-                            <div class="logo">
-                                <img src="/images/logo.webp" alt="logo" class="logo__img">
-                                <div class="logo__name">vendox-automation</div>
-                            </div>
-                            <a class="footer__email" href="${consts_media/* default */.A.email}">${consts_media/* default */.A.emailRaw}</a>
-                        </div>
-
-                        <p class="footer__description">${t.description}</p>
-                    </div>
-
-                </div>
-                <div class="footer__copyright">© ${t.copyright}</div>
-            </div>
-
-        </footer>
-    `;
-});
-
-// EXTERNAL MODULE: ./src/app/consts/routes.js
-var routes = __webpack_require__(739);
-;// ./src/app/components/Header.js
-
-
-
-const paths = ["/", "/projects"]
-
-/* harmony default export */ const Header = ((t) => {
-    return /*html*/ `
-        <header class="header">
-            <input class="hamburger" type="checkbox" aria-label="Menu" />
-
-
-
-
-            <div class="container">
-
-                <div class="header__inner">
-                    <a class="logo" href="/">
-                        <img class="logo__img" src="/images/logo.webp" alt="vendox logo">
-                        <span class="logo__name">vendox-automation</span>
-                    </a>
-                    <div class="header__links">
-                        ${paths
-            .map(
-                (path) => /*html*/ `
-                                <a href="${path}" class="header__link ${window.location.pathname === path
-                        ? "header__link_active"
-                        : ""
-                    }">${t[routes/* default */.A[path].name]}</a>
-                            `
-            )
-            .join("")}
-                    </div>
-
-
-                </div>
-            </div>
-            
-
-        </header>
-    `;
-});
-
-;// ./src/app/helpers/localeHandler.js
-
-async function getLocale() {
-    return fetch(`/locales/en.json`)
-        .then(res => {
-            if (!res.ok) throw new Error(`Locale file not found: ${res.statusText}`);
-            return res.json();
-        })
+const media_media = {
+    discord: {
+        id: "vendox-automation", // Updated tag/id placeholder
+        tag: "vendox-automation",
+    },
+    stackOverflow: {
+        id: "vendox-automation",
+        name: "vendox-automation",
+    },
+    github: "vendox-automation",
+    figma: "vendox_automation",
+    replit: "vendox_automation",
+    codewars: "vendox_automation",
+    devTo: "vendox_automation",
+    cssBattle: "vendox_automation",
+    codepen: "vendox_automation",
+    dribble: "vendox_automation",
+    email: "contact@vendox-automation.com"
 }
 
-/* harmony default export */ const localeHandler = (() => { });
-
-
-;// ./src/app/views/Layout.js
-
-
-
-
-/* harmony default export */ const Layout = (async (content, path) => {
-    const locale = await getLocale()
-
-    return /*html*/ `
-        ${Header(locale.header)}
-        <div class="container content page-enter">
-            ${content(locale.pages[path.name] || {}, locale)}
-        </div>
-        ${Footer(locale.footer)}
-    `;
-});
+/* harmony default export */ const consts_media = (new Proxy(media_media, media));
 
 
 /***/ },
@@ -240,57 +143,155 @@ async function getLocale() {
 
 /***/ },
 
-/***/ 934
+/***/ 175
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+    discord: "discord.com/users/",
+    github: "github.com/",
+    figma: "figma.com/@",
+    replit: "replit.com/@",
+    stackOverflow: "stackoverflow.com/users/",
+    codewars: "codewars.com/users/",
+    devTo: "dev.to/",
+    cssBattle: "cssbattle.dev/player/",
+    codepen: "codepen.io/",
+    dribble: "dribbble.com/",
+    email: "mailto:"
+});
+
+/***/ },
+
+/***/ 718
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  A: () => (/* binding */ consts_media)
+  "default": () => (/* binding */ Layout)
 });
 
-// EXTERNAL MODULE: ./src/app/consts/websites.js
-var websites = __webpack_require__(175);
-;// ./src/app/proxies/media.js
+// EXTERNAL MODULE: ./src/app/consts/media.js + 1 modules
+var media = __webpack_require__(934);
+;// ./src/app/components/MediaIcon.js
+/* unused harmony import specifier */ var MediaIcon_media;
 
 
-
-/* harmony default export */ const media = ({
-    get(target, name) {
-        if (name === "emailRaw") 
-            return target.email
-        
-        if (name === "discord") return `https://${websites/* default */.A.discord}${target.discord.id}`
-        if (name === "discordTag") return target.discord.tag
-
-        return `${name === "email" ? "" : "https://"}${websites/* default */.A[name] ?? ""}${target[name]}`
-    }
+/* harmony default export */ const MediaIcon = (({ name }) => {
+    return /*html*/ `
+        <a href="${MediaIcon_media[name]}" class="media">
+            <img src="/images/icons/${name}.svg" alt="${name}" class="media__icon"/>
+        </a>`;
 });
-;// ./src/app/consts/media.js
+
+;// ./src/app/components/Footer.js
 
 
-const media_media = {
-    discord: {
-        id: "vendox-automation", // Updated tag/id placeholder
-        tag: "vendox-automation",
-    },
-    stackOverflow: {
-        id: "vendox-automation",
-        name: "vendox-automation",
-    },
-    github: "vendox-automation",
-    figma: "vendox_automation",
-    replit: "vendox_automation",
-    codewars: "vendox_automation",
-    devTo: "vendox_automation",
-    cssBattle: "vendox_automation",
-    codepen: "vendox_automation",
-    dribble: "vendox_automation",
-    email: "contact@vendox-automation.com"
+
+/* harmony default export */ const Footer = ((t) => {
+    return /*html*/ `
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__inner">
+                    <div class="footer__info">
+                        <div class="footer__header">
+                            <div class="logo">
+                                <img src="/images/logo.webp" alt="logo" class="logo__img">
+                                <div class="logo__name">vendox-automation</div>
+                            </div>
+                            <a class="footer__email" href="${media/* default */.A.email}">${media/* default */.A.emailRaw}</a>
+                        </div>
+
+                        <p class="footer__description">${t.description}</p>
+                    </div>
+
+                </div>
+                <div class="footer__copyright">© ${t.copyright}</div>
+            </div>
+
+        </footer>
+    `;
+});
+
+// EXTERNAL MODULE: ./src/app/consts/routes.js
+var routes = __webpack_require__(739);
+;// ./src/app/components/Header.js
+
+
+
+const paths = ["/", "/projects"]
+
+/* harmony default export */ const Header = ((t) => {
+    return /*html*/ `
+        <header class="header">
+            <input class="hamburger" type="checkbox" aria-label="Menu" />
+
+
+
+
+            <div class="container">
+
+                <div class="header__inner">
+                    <a class="logo" href="/">
+                        <img class="logo__img" src="/images/logo.webp" alt="vendox logo">
+                        <span class="logo__name">vendox-automation</span>
+                    </a>
+                    <div class="header__links">
+                        ${paths
+            .map(
+                (path) => /*html*/ `
+                                <a href="${path}" class="header__link ${window.location.pathname === path
+                        ? "header__link_active"
+                        : ""
+                    }">${t[routes/* default */.A[path].name]}</a>
+                            `
+            )
+            .join("")}
+                    </div>
+
+
+                </div>
+            </div>
+            
+
+        </header>
+    `;
+});
+
+;// ./src/app/helpers/localeHandler.js
+
+async function getLocale() {
+    return fetch(`/locales/en.json`)
+        .then(res => {
+            if (!res.ok) throw new Error(`Locale file not found: ${res.statusText}`);
+            return res.json();
+        })
 }
 
-/* harmony default export */ const consts_media = (new Proxy(media_media, media));
+/* harmony default export */ const localeHandler = (() => { });
+
+
+;// ./src/app/views/Layout.js
+
+
+
+
+/* harmony default export */ const Layout = (async (content, path) => {
+    const locale = await getLocale()
+
+    return /*html*/ `
+        ${Header(locale.header)}
+        <div class="container content page-enter">
+            ${content(locale.pages[path.name] || {}, locale)}
+        </div>
+        ${Footer(locale.footer)}
+    `;
+});
 
 
 /***/ },
@@ -301,64 +302,84 @@ const media_media = {
 var map = {
 	"./Contacts": [
 		960,
-		960
+		[
+			960
+		]
 	],
 	"./Contacts.js": [
 		960,
-		960
+		[
+			960
+		]
 	],
 	"./Home": [
 		245,
-		245
+		[
+			245
+		]
 	],
 	"./Home.js": [
 		245,
-		245
+		[
+			245
+		]
 	],
 	"./Layout": [
-		718
+		718,
+		[]
 	],
 	"./Layout.js": [
-		718
+		718,
+		[]
 	],
 	"./PageNotFound": [
 		573,
-		573
+		[
+			573
+		]
 	],
 	"./PageNotFound.js": [
 		573,
-		573
+		[
+			573
+		]
 	],
 	"./ProjectDetails": [
 		864,
-		864
+		[
+			864
+		]
 	],
 	"./ProjectDetails.js": [
 		864,
-		864
+		[
+			864
+		]
 	],
 	"./Projects": [
 		847,
-		847
+		[
+			847
+		]
 	],
 	"./Projects.js": [
 		847,
-		847
+		[
+			847
+		]
 	]
 };
 function webpackAsyncContext(req) {
 	if(!__webpack_require__.o(map, req)) {
 		return Promise.resolve().then(() => {
-			var e = new Error("Cannot find module '" + req + "'");
-			e.code = 'MODULE_NOT_FOUND';
-			throw e;
-		});
+	var e = new Error("Cannot find module '" + req + "'");
+	e.code = 'MODULE_NOT_FOUND';
+	throw e;
+});
 	}
 
 	var ids = map[req], id = ids[0];
-	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(() => {
-		return __webpack_require__(id);
-	});
+	return Promise.all(ids[1].map(__webpack_require__.e)).then(() => (__webpack_require__(id)));
 }
 webpackAsyncContext.keys = () => (Object.keys(map));
 webpackAsyncContext.id = 942;
@@ -426,7 +447,7 @@ module.exports = webpackAsyncContext;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "" + chunkId + "." + {"245":"713fbe10aad4b5665cff","573":"0052a9a5ba65859a2062","847":"76e181f9cc00211d593c","864":"ed9412907146822666cc","960":"10c4a5b4ab84c3ae58ac"}[chunkId] + ".js";
+/******/ 			return "" + chunkId + "." + {"245":"5aa98f4d9267709f22db","573":"0052a9a5ba65859a2062","847":"81a5d200c54b4c79c569","864":"ccaed849ba3f0551f910","960":"10c4a5b4ab84c3ae58ac"}[chunkId] + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -435,7 +456,7 @@ module.exports = webpackAsyncContext;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.miniCssF = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "" + chunkId + "." + {"245":"d51af242c1416ddb52fd","847":"3bd8f97c24d691e85b6a","864":"6b495d5c20acf30b289d"}[chunkId] + ".css";
+/******/ 			return "" + chunkId + "." + {"245":"2ce00153a4edf4bcf57f","847":"4ef82b351e75bf5cdd1c","864":"786cc5abac594ee7b40b"}[chunkId] + ".css";
 /******/ 		};
 /******/ 	})();
 /******/ 	

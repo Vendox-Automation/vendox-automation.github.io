@@ -1,6 +1,51 @@
 "use strict";
 (self["webpackChunkportfolio"] = self["webpackChunkportfolio"] || []).push([[847],{
 
+/***/ 778
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _consts_techs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(928);
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (({ description }) => {
+    const popularTechs = ['chrome', 'telegram', 'excel', 'sheets', 'facebook'];
+    const pathName = window.location.pathname.slice(1);
+    const isProjectsPage = pathName === 'projects';
+
+    return /*html*/`
+        <div class="path">
+            <div class="path__content">
+                <div class="path__info">
+                    <h1 class="h1 path__name">${pathName}</h1>
+                    <p class="path__description">${description}</p>
+                </div>
+                ${isProjectsPage ? `
+                <div class="filter-bar">
+                    <div class="filter-bar__search">
+                        <input type="text" placeholder="Search projects..." class="filter-bar__input">
+                        <div class="filter-bar__dropdown">
+                            <div class="filter-bar__dropdown-content">
+                                ${popularTechs.map(tech => `
+                                    <div class="filter-category">
+                                        <span class="filter-category__label">${_consts_techs__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A[tech]}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                ` : ""}
+            </div>
+        </div>
+    `
+});
+
+
+/***/ },
+
 /***/ 340
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -13,12 +58,14 @@ __webpack_require__.d(__webpack_exports__, {
 // EXTERNAL MODULE: ./src/app/consts/projects.js
 var projects = __webpack_require__(635);
 // EXTERNAL MODULE: ./src/app/consts/websites.js
-var consts_websites = __webpack_require__(175);
+var websites = __webpack_require__(175);
 // EXTERNAL MODULE: ./src/app/consts/techs.js
 var techs = __webpack_require__(928);
 // EXTERNAL MODULE: ./src/app/consts/media.js + 1 modules
-var consts_media = __webpack_require__(934);
+var media = __webpack_require__(934);
 ;// ./src/app/components/Project.js
+/* unused harmony import specifier */ var Project_websites;
+/* unused harmony import specifier */ var Project_media;
 
 
 
@@ -27,10 +74,10 @@ var consts_media = __webpack_require__(934);
 function mapLinks(links) {
     function map(link) {
         let href =
-            "https://" + (link === "live" ? "" : websites[link]) + links[link];
+            "https://" + (link === "live" ? "" : Project_websites[link]) + links[link];
 
         if (link === "figma") href = `https://figma.com/community/file/${links[link]}`
-        if (link === "github" && links[link].startsWith("/")) href = media.github + links[link]
+        if (link === "github" && links[link].startsWith("/")) href = Project_media.github + links[link]
 
 
         const className = link === "cached" ? "button__secondary" : "";
@@ -165,137 +212,101 @@ function getTechIcon(tech) {
  */
 const projects = [
     {
-        id: "angkasa",
+        id: "data-upload",
         status: "AUTOMATED",
         techs: ["excel", "sheets"],
         links: {},
-        stats: { manual: 210, automated: 7 }
+        stats: { manual: 60, automated: 2 },
+        flow: {
+            before: [
+                { text: "Export raw data from source sources (Excel/CSV)", time: "10 min" },
+                { text: "Manual data formatting and cleaning", time: "20 min" },
+                { text: "Manual login to operational platforms", time: "5 min" },
+                { text: "Entry of data records one by one", time: "15 min" },
+                { text: "Manual verification and error checking", time: "10 min" }
+            ],
+            after: [
+                { text: "Automated data fetching from source", time: "10 sec" },
+                { text: "Instant validation and multi-threaded upload", time: "1 min" },
+                { text: "Automated success reporting and logs", time: "50 sec" }
+            ]
+        }
     },
     {
-        id: "onesignal-subs-scraper",
+        id: "data-collection",
         status: "AUTOMATED",
-        techs: ["onesignal", "sheets"],
-        links: { github: "https://github.com/vendox-automation" },
-        stats: { manual: 17, automated: 14 }
-    },
-    {
-        id: "onesignal-domain-inserter",
-        status: "AUTOMATED",
-        techs: ["onesignal", "sheets"],
+        techs: ["chrome", "telegram", "facebook"],
         links: {},
-        stats: { manual: 180, automated: 90 }
+        stats: { manual: 480, automated: 15 },
+        flow: {
+            before: [
+                { text: "Navigate to multiple websites manually", time: "120 min" },
+                { text: "Manually extract and copy-paste data", time: "240 min" },
+                { text: "Manual data cleaning and structuring", time: "120 min" }
+            ],
+            after: [
+                { text: "Intelligent scraper engine runs automatically", time: "10 min" },
+                { text: "Real-time sync to database/sheets", time: "5 min" }
+            ]
+        }
     },
     {
-        id: "stamplist",
-        status: "AUTOMATED",
-        techs: ["sheets", "chrome", "telegram"],
-        links: {},
-        stats: { manual: 18000, automated: 68 }
-    },
-    {
-        id: "game-arrangement",
+        id: "scheduling",
         status: "AUTOMATED",
         techs: ["chrome", "telegram"],
         links: {},
-        stats: { manual: 600, automated: 4 }
+        stats: { manual: 120, automated: 5 },
+        flow: {
+            before: [
+                { text: "Manual verification of availability/dates", time: "20 min" },
+                { text: "Setting up promo/brand states manually", time: "60 min" },
+                { text: "Cross-checking overlaps and conflicts", time: "40 min" }
+            ],
+            after: [
+                { text: "Simple configuration upload", time: "2 min" },
+                { text: "Automated scheduler handles orchestration", time: "3 min" }
+            ]
+        }
     },
     {
-        id: "payment-gateway-checker",
+        id: "monitoring",
         status: "AUTOMATED",
         techs: ["chrome", "telegram"],
         links: {},
-        stats: { manual: 15, automated: 1.5 }
+        stats: { manual: 30, automated: 0.5 },
+        flow: {
+            before: [
+                { text: "Manual login and periodic status checks", time: "20 min" },
+                { text: "Manual reporting of system anomalies", time: "10 min" }
+            ],
+            after: [
+                { text: "Continuous 24/7 background monitoring", time: "20 sec" },
+                { text: "Instant Telegram alerts on detection", time: "10 sec" }
+            ]
+        }
     },
     {
-        id: "vip-file-updater",
+        id: "data-processing",
         status: "AUTOMATED",
         techs: ["excel", "sheets"],
         links: {},
-        stats: { manual: 30, automated: 5 }
-    },
-    {
-        id: "account-reconcilator",
-        status: "AUTOMATED",
-        techs: ["sheets", "telegram"],
-        links: {},
-        stats: { manual: 15, automated: 5 }
-    },
-    {
-        id: "manual-banking",
-        status: "AUTOMATED",
-        techs: ["excel", "sheets", "chrome"],
-        links: {},
-        stats: { manual: 10, automated: 0.4 }
-    },
-    {
-        id: "predictive-dialer-uploader",
-        status: "AUTOMATED",
-        techs: ["excel", "sheets"],
-        links: {},
-        stats: { manual: 60, automated: 16 }
-    },
-    {
-        id: "broadcast-dialer-uploader",
-        status: "AUTOMATED",
-        techs: ["excel", "sheets"],
-        links: {},
-        stats: { manual: 30, automated: 7 }
-    },
-    {
-        id: "facebook-comment-scraper",
-        status: "AUTOMATED",
-        techs: ["facebook", "sheets", "telegram"],
-        links: { github: "https://github.com/vendox-automation" },
-        stats: { manual: 660, automated: 78 }
+        stats: { manual: 180, automated: 10 },
+        flow: {
+            before: [
+                { text: "Retrieve fragmented settlement docs", time: "30 min" },
+                { text: "Apply complex manual filtering logic", time: "90 min" },
+                { text: "Manual reconciliation against database", time: "60 min" }
+            ],
+            after: [
+                { text: "Automated document fetcher engine", time: "2 min" },
+                { text: "Logic processor applies filters instantly", time: "5 min" },
+                { text: "Final reconciled report generation", time: "3 min" }
+            ]
+        }
     }
 ];
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (projects);
-
-
-/***/ },
-
-/***/ 778
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _consts_techs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(928);
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (({ description }) => {
-    const popularTechs = ['chrome', 'telegram', 'excel', 'sheets', 'facebook'];
-    const pathName = window.location.pathname.slice(1);
-    const isProjectsPage = pathName === 'projects';
-
-    return /*html*/`
-        <div class="path">
-            <div class="path__content">
-                <div class="path__info">
-                    <h1 class="h1 path__name">${pathName}</h1>
-                    <p class="path__description">${description}</p>
-                </div>
-                ${isProjectsPage ? `
-                <div class="filter-bar">
-                    <div class="filter-bar__search">
-                        <input type="text" placeholder="Search projects..." class="filter-bar__input">
-                        <div class="filter-bar__dropdown">
-                            <div class="filter-bar__dropdown-content">
-                                ${popularTechs.map(tech => `
-                                    <div class="filter-category">
-                                        <span class="filter-category__label">${_consts_techs__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A[tech]}</span>
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                ` : ""}
-            </div>
-        </div>
-    `
-});
 
 
 /***/ },
