@@ -1,50 +1,5 @@
 "use strict";
-(self["webpackChunkportfolio"] = self["webpackChunkportfolio"] || []).push([[847],{
-
-/***/ 778
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _consts_techs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(928);
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (({ description }) => {
-    const popularTechs = ['chrome', 'telegram', 'excel', 'sheets', 'facebook'];
-    const pathName = window.location.pathname.slice(1);
-    const isProjectsPage = pathName === 'projects';
-
-    return /*html*/`
-        <div class="path">
-            <div class="path__content">
-                <div class="path__info">
-                    <h1 class="h1 path__name">${pathName}</h1>
-                    <p class="path__description">${description}</p>
-                </div>
-                ${isProjectsPage ? `
-                <div class="filter-bar">
-                    <div class="filter-bar__search">
-                        <input type="text" placeholder="Search projects..." class="filter-bar__input">
-                        <div class="filter-bar__dropdown">
-                            <div class="filter-bar__dropdown-content">
-                                ${popularTechs.map(tech => `
-                                    <div class="filter-category">
-                                        <span class="filter-category__label">${_consts_techs__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A[tech]}</span>
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                ` : ""}
-            </div>
-        </div>
-    `
-});
-
-
-/***/ },
+(self["webpackChunkportfolio"] = self["webpackChunkportfolio"] || []).push([[245],{
 
 /***/ 340
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
@@ -173,6 +128,22 @@ function getTechIcon(tech) {
                 </div>
                 ${kpi ? `<div class="project__kpi">${kpi}</div>` : ""}
                 <div class="project__description">${t[id].description}</div>
+
+                <div class="project__efficiency">
+                    <span class="project__efficiency-label">Time saved:</span>
+                    <div class="project__efficiency-bar">
+                        ${(() => {
+            const stats = project.stats || { manual: 60, automated: 2 };
+            const manual = stats.manual || 1;
+            const timeSaved = manual - stats.automated;
+            const savedPercent = Math.round((timeSaved / manual) * 100);
+            return `
+                                <div class="project__efficiency-fill" style="width: ${savedPercent}%"></div>
+                                <span class="project__efficiency-value">${savedPercent}%</span>
+                            `;
+        })()}
+                    </div>
+                </div>
             </div>
         </div> 
     `;
@@ -311,26 +282,158 @@ const projects = [
 
 /***/ },
 
-/***/ 847
+/***/ 245
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _components_Path_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(778);
-/* harmony import */ var _components_ProjectList_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(340);
 
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": () => (/* binding */ Home)
+});
 
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((t, t2) => {
+;// ./src/app/blocks/home/Hero.js
+/* harmony default export */ const Hero = ((t) => {
     return /*html*/ `
-        ${(0,_components_Path_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A)({ description: t.description })}
-        ${(0,_components_ProjectList_js__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)({ filter: (p) => !p.isInProgress }, t2.projects)}
+        <section class="hero">
+            <div class="hero__content">
+                <h1 class="hero__title">${t.title}</h1>
+                <div class="hero__description">${t.description}</div>
+                <a class="button button__primary" href="#contacts">${t.button} =></a>
+            </div>
+            <div class="hero__illustrations">
+                <img src="/images/hero.png" alt="vendox-automation" class="hero__image">
+            </div>
+        </section>
     `;
 });
 
+;// ./src/app/blocks/home/TrustBadges.js
+/* harmony default export */ const TrustBadges = ((t) => {
+    const badges = [
+        { icon: '🚀', title: 'Fast Integration', desc: 'Seamlessly connects with your existing workflow' },
+        { icon: '🎯', title: '99% Accuracy', desc: 'Precision-engineered automation scripts' },
+        { icon: '🛠️', title: '24/7 Monitoring', desc: 'Active surveillance of all automated tasks' },
+        { icon: '💎', title: 'Premium Quality', desc: 'Clean, maintainable, and scalable code' }
+    ];
+
+    return /*html*/`
+        <section class="trust-badges container">
+            <div class="trust-badges__list">
+                ${badges.map(badge => `
+                    <div class="trust-badge">
+                        <div class="trust-badge__icon">${badge.icon}</div>
+                        <div class="trust-badge__content">
+                            <div class="trust-badge__title">${badge.title}</div>
+                            <div class="trust-badge__desc">${badge.desc}</div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+    `;
+});
+
+// EXTERNAL MODULE: ./src/app/components/ProjectList.js + 1 modules
+var ProjectList = __webpack_require__(340);
+;// ./src/app/blocks/home/Projects.js
+
+
+/* harmony default export */ const Projects = ((t, t2) => {
+    return /*html*/ `
+        <section class="projects">
+            <div class="projects__header">
+                <h2 class="h2">${t.title}</h2>
+                <a class="projects__link" href="/projects">${t.button} ~~></a>
+            </div>
+            ${(0,ProjectList/* default */.A)({ limit: 3 }, t2)}
+        </section>
+    `;
+});
+
+;// ./src/app/blocks/home/About.js
+/* harmony default export */ const About = ((t) => {
+    return /*html*/ `
+        <section class="about">
+            <div class="about__content">
+                <h2 class="h2">${t.title}</h2>
+                <div class="about__text">
+                    ${t.description.map(
+        (text) =>
+                            /*html*/ `<p class="about__description">${text}</p>`
+    ).join("")}
+                </div>
+
+
+            </div>
+            <img src="/images/about-me.png" alt="" class="about__image">
+        </section>
+    `;
+});
+
+// EXTERNAL MODULE: ./src/app/consts/media.js + 1 modules
+var media = __webpack_require__(934);
+;// ./src/app/blocks/home/Contacts.js
+
+
+const contacts = [
+    {
+        name: "discord",
+        text: media/* default */.A.discordTag,
+    },
+    {
+        name: "email",
+        text: media/* default */.A.emailRaw,
+    }
+];
+
+/* harmony default export */ const Contacts = ((t) => {
+    return /*html*/ `
+        <section class="contacts" id="contacts">
+            <h2 class="h2">${t.title}</h2>
+            <div class="contacts__content">
+                <p class="contacts__description">${t.text}</p>
+                <div class="contacts__media">
+                    <h3 class="contacts__title">${t.media}</h3>
+                    <div class="contacts__list">
+                        ${contacts
+            .map(
+                (contact) => /*html*/ `
+                            <a class="contact" href="${media/* default */.A[contact.name]}">
+                                <img src="/images/icons/${contact.name
+                    }.svg" alt="">
+                                <div class="contact__name">${contact.text}</div>
+                            </a>
+                        `
+            )
+            .join("")}
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    `;
+});
+
+;// ./src/app/views/Home.js
+
+
+
+
+
+
+
+
+
+
+/* harmony default export */ const Home = ((t, locale) => {
+    return /*html*/`
+        <div class="section-reveal">${Hero(t.hero)}</div>
+        <div class="section-reveal">${TrustBadges()}</div>
+        <div class="section-reveal">${Projects(t.projects, locale.projects)}</div>
+        <div class="section-reveal">${About(t.about)}</div>
+        <div class="section-reveal">${Contacts(t.contacts)}</div>
+    `;
+});
 
 
 

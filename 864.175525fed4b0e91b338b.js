@@ -202,89 +202,103 @@ const getTechIcon = (tech) => {
                     <h1 class="project-details__title">${name}</h1>
                 </section>
 
-                <div class="project-details__grid">
-                    <div class="project-details__main">
-                        <section class="project-details__section">
-                            <h2 class="h2 project-details__section-title">Overview</h2>
-                            <div class="project-details__description">
-                                ${description}
-                            </div>
-                        </section>
-
-                        <section class="project-details__section">
-                            <h2 class="h2 project-details__section-title">Workflow Optimization</h2>
-                            
-                            <div class="workflow-grid">
-                                <div class="workflow-flows">
-                                    <div class="flow-container before">
-                                        <h3 class="flow-container__subtitle">Before Automation</h3>
-                                        <div class="flow-timeline">
-                                            ${(projectConfig.flow?.before || []).map((step, index) => `
-                                                <div class="flow-step">
-                                                    <div class="flow-step__marker">${index + 1}</div>
-                                                    <div class="flow-step__content">
-                                                        <p class="flow-step__text">${step.text}</p>
-                                                        <span class="flow-step__time">${step.time}</span>
-                                                    </div>
-                                                </div>
-                                            `).join('')}
-                                        </div>
-                                        <div class="flow-total">Total: ${manual} min</div>
-                                    </div>
-
-                                    <div class="flow-comparison__divider"></div>
-
-                                    <div class="flow-container after">
-                                        <h3 class="flow-container__subtitle">After Automation</h3>
-                                        <div class="flow-timeline">
-                                            ${(projectConfig.flow?.after || []).map((step, index) => `
-                                                <div class="flow-step">
-                                                    <div class="flow-step__marker">
-                                                        ${index === (projectConfig.flow?.after.length - 1) ? '✓' : index + 1}
-                                                    </div>
-                                                    <div class="flow-step__content">
-                                                        <p class="flow-step__text">${step.text}</p>
-                                                        <span class="flow-step__time">${step.time}</span>
-                                                    </div>
-                                                </div>
-                                            `).join('')}
-                                        </div>
-                                        <div class="flow-total">Total: ${stats.automated} min</div>
-                                    </div>
-                                </div>
-
-                                <div class="workflow-sidebar">
-                                    <div class="impact-card">
-                                        <h3 class="impact-card__title">Efficiency Boost</h3>
-                                        <div class="impact-card__chart">
-                                            <div class="circular-progress" style="--p: ${savedPercent}">
-                                                <div class="circular-progress__value">${savedPercent}%</div>
-                                            </div>
-                                        </div>
-                                        <div class="impact-card__footer">
-                                            ${manual - stats.automated} mins saved per cycle
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                        <section class="project-details__section">
-                            <h2 class="h2 project-details__section-title">Platforms Involved</h2>
-                            <div class="tech-list">
-                                ${projectConfig.techs.map(tech => {
+                <div class="project-details__content">
+                    <div class="project-details__top-layout">
+                        <div class="project-details__main-info">
+                            <!-- Technical Stack -->
+                            <section class="project-details__section">
+                                <h2 class="h2 project-details__section-title">Technical Stack</h2>
+                                <div class="tech-list">
+                                    ${projectConfig.techs.map(tech => {
         const icon = getTechIcon(tech);
         const techName = _consts_techs__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A[tech] || tech;
         return icon ? `
-                                        <div class="tech-item" title="${techName}">
-                                            <img src="${icon}" alt="${techName}" class="tech-icon">
-                                            <span>${techName}</span>
-                                        </div>
-                                    ` : '';
+                                            <div class="tech-item" title="${techName}">
+                                                <img src="${icon}" alt="${techName}" class="tech-icon">
+                                                <span>${techName}</span>
+                                            </div>
+                                        ` : '';
     }).join('')}
+                                </div>
+                            </section>
+
+                            <!-- Overview -->
+                            <section class="project-details__section">
+                                <h2 class="h2 project-details__section-title">Overview</h2>
+                                <div class="project-details__description">
+                                    ${description}
+                                </div>
+                            </section>
+                        </div>
+
+                        <div class="project-details__efficiency-sidebar">
+                            <div class="impact-card">
+                                <h3 class="impact-card__title">Efficiency Boost</h3>
+                                <div class="impact-card__chart">
+                                    <div class="circular-progress" style="--p: ${savedPercent}">
+                                        <div class="circular-progress__value">${savedPercent}%</div>
+                                    </div>
+                                </div>
+                                <div class="impact-card__stats">
+                                    <div class="impact-stat">
+                                        <span class="impact-stat__label">Manual</span>
+                                        <span class="impact-stat__value red">${manual}m</span>
+                                    </div>
+                                    <div class="impact-stat__divider"></div>
+                                    <div class="impact-stat">
+                                        <span class="impact-stat__label">Automated</span>
+                                        <span class="impact-stat__value green">${stats.automated}m</span>
+                                    </div>
+                                </div>
+                                <div class="impact-card__footer">
+                                    ${manual - stats.automated} mins saved per cycle
+                                </div>
                             </div>
-                        </section>
+                        </div>
                     </div>
+
+                    <!-- Workflow Optimization -->
+                    <section class="project-details__section">
+                        <h2 class="h2 project-details__section-title">Workflow Optimization</h2>
+                        
+                        <div class="workflow-flows-full">
+                            <div class="flow-container before">
+                                <h3 class="flow-container__subtitle">Before Automation</h3>
+                                <div class="flow-timeline">
+                                    ${(projectConfig.flow?.before || []).map((step, index) => `
+                                        <div class="flow-step">
+                                            <div class="flow-step__marker">${index + 1}</div>
+                                            <div class="flow-step__content">
+                                                <p class="flow-step__text">${step.text}</p>
+                                                <span class="flow-step__time">${step.time}</span>
+                                            </div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                                <div class="flow-total">Total: ${manual} min</div>
+                            </div>
+
+                            <div class="flow-comparison__divider"></div>
+
+                            <div class="flow-container after">
+                                <h3 class="flow-container__subtitle">After Automation</h3>
+                                <div class="flow-timeline">
+                                    ${(projectConfig.flow?.after || []).map((step, index) => `
+                                        <div class="flow-step">
+                                            <div class="flow-step__marker">
+                                                ${index === (projectConfig.flow?.after.length - 1) ? '✓' : index + 1}
+                                            </div>
+                                            <div class="flow-step__content">
+                                                <p class="flow-step__text">${step.text}</p>
+                                                <span class="flow-step__time">${step.time}</span>
+                                            </div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                                <div class="flow-total">Total: ${stats.automated} min</div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </div>
         </div>
