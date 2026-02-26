@@ -19,29 +19,29 @@
     },
     "projects": {
         "data-upload": {
-            "name": "Data Upload / Action",
-            "description": "High-velocity automated data ingestion and action execution systems ensuring 100% accuracy.",
-            "fullDescription": "Our Data Upload and Action systems automate the ingestion of high-volume datasets into diverse operational platforms. By integrating robust validation layers and multi-threaded processing, these tools eliminate manual entry errors, reduce processing time from hours to seconds, and ensure your core operations are always fueled by precise, ready-to-use data."
+            "name": "Workflow Automation",
+            "description": "Automations that execute operational tasks such as uploads, submissions, postings, batch processing, and transaction handling within business systems.",
+            "fullDescription": "Automations that focus on directly performing operational actions within business systems. This includes batch uploads, data submissions, posting activities, transaction handling, and structured task execution. These automations replace high-volume, repetitive human workflows with precise, rule-based execution. As a result, turnaround time is significantly reduced, error rates are minimized, and operational throughput is increased without proportional growth in manpower requirements."
         },
         "data-collection": {
-            "name": "Data Collection",
-            "description": "Intelligent web harvesting and scraping engines for real-time data intelligence and monitoring.",
-            "fullDescription": "Advanced data collection tools designed to harvest structured insights from complex web environments. From tracking subscription growth to scraping community engagement metrics, our automated engines provide a continuous stream of real-time data, enabling proactive decision-making and eliminating the need for periodic manual audits."
+            "name": "Data Acquisition",
+            "description": "Automations focused on structured retrieval, extraction, and consolidation of data from internal and external sources.",
+            "fullDescription": "Automations that focus on systematically extracting, gathering, and consolidating data from various platforms, systems, and digital environments. These automations eliminate manual scraping, repetitive downloads, and fragmented data collection processes. By ensuring consistent, structured, and timely data retrieval, this layer forms the foundation for accurate reporting, operational execution, and analytics-driven decision-making. It enhances scalability while reducing human fatigue and oversight errors."
         },
         "scheduling": {
-            "name": "Scheduling / Arrangement",
-            "description": "Automated orchestration of complex multi-platform tasks and brand configurations.",
-            "fullDescription": "Streamline your coordination efforts with automated scheduling and arrangement systems. We build tools that manage concurrent brand launches, promotional setups, and cross-platform resource mapping. This intelligent orchestration reduces manual management overhead and ensures perfect synchronization across your entire digital infrastructure."
+            "name": "Operational Coordination and Scheduling",
+            "description": "Automations that manage structured coordination, task sequencing, scheduling, and recurring operational arrangements.",
+            "fullDescription": "Automations that focus on managing time-based, recurring, and structured operational activities. Automations within this layer organize task sequences, align workflows across teams or brands, and ensure timely execution of routine operations. By reducing manual coordination effort and dependency on individual oversight, this stage enhances consistency, predictability, and execution discipline across operational functions. It supports scalable operations without increasing administrative burden."
         },
         "monitoring": {
-            "name": "Monitoring / Checking",
+            "name": "System Monitoring and Verification",
             "description": "Active 24/7 status verification and health monitoring for mission-critical service integrations.",
-            "fullDescription": "Protect your revenue streams with proactive monitoring solutions that never sleep. Our systems perform continuous verification of payment gateways, API endpoints, and system health status. With instant alerting and comprehensive performance logs, you gain the peace of mind that comes from knowing your infrastructure is being audited every minute of every day."
+            "fullDescription": "Automations that is designed to maintain operational stability through automated checks and validation processes. These automations monitor domains, payment gateways, configurations, and system-level components to detect inconsistencies, downtime risks, or misalignments. By proactively identifying issues, this layer reduces operational disruptions, enhances reliability, and supports risk mitigation strategies. It strengthens overall system governance and ensures uninterrupted business continuity."
         },
         "data-processing": {
-            "name": "Data Processing",
-            "description": "End-to-end data transformation and reconciliation workflows for precision financial reporting.",
-            "fullDescription": "Transform raw, fragmented records into standardized, actionable reports with our automated processing pipelines. We design workflows that retrieve settlement documents, apply complex filtering logic, and execute perfect reconciliation against your core databases. Replace tedious manual accounting cycles with a single, reliable automated operation."
+            "name": "Data Processing and Reconciliation",
+            "description": "Automations that perform validation, cleansing, reconciliation, transformation, and structured computation of datasets to ensure accuracy and consistency.",
+            "fullDescription": "Automations that ensure that collected data is accurate, structured, and aligned with operational requirements. Automations within this layer perform cleansing, cross-verification, validation checks, filtering, computation, and reconciliation across multiple sources. This significantly reduces the risk of human error, improves data consistency, and strengthens compliance standards. By automating complex processing logic, the department ensures reliable outputs that can be confidently used for reporting, financial tracking, and operational decision-making."
         }
     },
     "pages": {

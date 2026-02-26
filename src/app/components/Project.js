@@ -105,6 +105,22 @@ export default ({ id }, t) => {
                 </div>
                 ${kpi ? `<div class="project__kpi">${kpi}</div>` : ""}
                 <div class="project__description">${t[id].description}</div>
+
+                <div class="project__efficiency">
+                    <span class="project__efficiency-label">Time saved:</span>
+                    <div class="project__efficiency-bar">
+                        ${(() => {
+            const stats = project.stats || { manual: 60, automated: 2 };
+            const manual = stats.manual || 1;
+            const timeSaved = manual - stats.automated;
+            const savedPercent = Math.round((timeSaved / manual) * 100);
+            return `
+                                <div class="project__efficiency-fill" style="width: ${savedPercent}%"></div>
+                                <span class="project__efficiency-value">${savedPercent}%</span>
+                            `;
+        })()}
+                    </div>
+                </div>
             </div>
         </div> 
     `;
