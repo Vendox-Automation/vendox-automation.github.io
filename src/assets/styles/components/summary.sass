@@ -1,0 +1,120 @@
+.summary-container-dual
+    display: grid
+    grid-template-columns: 1fr 1fr
+    gap: 24px
+    margin-bottom: 30px
+    margin-top: 20px
+    
+    @media (max-width: $tabletScreen)
+        grid-template-columns: 1fr
+
+.summary-box
+    background: rgba(255, 255, 255, 0.02)
+    border: 1px solid rgba(255, 255, 255, 0.1)
+    padding: 40px
+    border-radius: 12px
+    position: relative
+    overflow: hidden
+    display: flex
+    justify-content: space-between
+    align-items: center
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1)
+    opacity: 0 // Prevent flicker
+    transform: translateY(20px)
+    animation: box-slide-up 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.2s
+
+    &::after
+        content: ''
+        position: absolute
+        inset: 0
+        background: radial-gradient(circle at top right, rgba(var(--primary-rgb), 0.1), transparent 70%)
+        pointer-events: none
+
+    &:hover
+        background: rgba(255, 255, 255, 0.04)
+        border-color: var(--primary)
+        transform: translateY(-8px) scale(1.02)
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3)
+        
+        .summary-box__icon
+            transform: scale(1.1) rotate(5deg)
+            opacity: 0.3
+            color: var(--primary)
+
+    &__content
+        position: relative
+        z-index: 1
+        flex: 1
+
+    &__number
+        font-size: 64px
+        font-weight: 800
+        color: var(--primary)
+        line-height: 1
+        margin-bottom: 12px
+        font-family: 'Fira Code', monospace
+        text-shadow: 0 0 20px rgba(var(--primary-rgb), 0.3)
+
+    &__title
+        font-size: 24px
+        font-weight: 700
+        color: var(--white)
+        margin-bottom: 8px
+
+    &__subtitle
+        font-size: 14px
+        color: var(--gray)
+        margin-bottom: 20px
+
+    &__icon
+        color: var(--gray)
+        opacity: 0.1
+        transition: all 0.5s ease
+        transform: rotate(-10deg)
+
+    &__tags
+        display: flex
+        flex-wrap: wrap
+        gap: 8px
+        margin-top: 16px
+
+    &__tag
+        background: rgba(var(--primary-rgb), 0.1)
+        border: 1px solid rgba(var(--primary-rgb), 0.2)
+        color: var(--primary)
+        padding: 6px 14px
+        border-radius: 20px
+        font-size: 13px
+        font-weight: 600
+        transition: all 0.3s ease
+        opacity: 0 // Prevent flicker
+        animation: tag-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards
+        animation-delay: calc(0.5s + var(--delay, 0) * 0.1s)
+        cursor: pointer
+        user-select: none
+        
+        &:hover, &.is-active
+            background: var(--primary)
+            color: #fff
+            transform: scale(1.05)
+            box-shadow: 0 0 15px rgba(var(--primary-rgb), 0.4)
+
+@keyframes box-slide-up
+    from
+        opacity: 0
+        transform: translateY(40px)
+    to
+        opacity: 1
+        transform: translateY(0)
+
+@keyframes tag-pop
+    from
+        transform: scale(0.8)
+        opacity: 0
+    to
+        transform: scale(1)
+        opacity: 1
+
+// Root variables for RGB if not defined
+:root
+    --primary-rgb: 199, 120, 221 // Defaulting to the purple color from your theme

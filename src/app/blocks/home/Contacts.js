@@ -2,12 +2,9 @@ import media from "@/consts/media";
 
 const contacts = [
     {
-        name: "discord",
-        text: media.discordTag,
-    },
-    {
         name: "email",
-        text: media.emailRaw,
+        text: "contact@vendox-automation.com",
+        link: "/contact"
     }
 ];
 
@@ -23,7 +20,7 @@ export default (t) => {
                         ${contacts
             .map(
                 (contact) => /*html*/ `
-                            <a class="contact" href="${media[contact.name]}">
+                            <a class="contact" href="${contact.link || media[contact.name]}">
                                 <img src="/images/icons/${contact.name
                     }.svg" alt="">
                                 <div class="contact__name">${contact.text}</div>

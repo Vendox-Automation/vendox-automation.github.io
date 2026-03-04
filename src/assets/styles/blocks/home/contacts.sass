@@ -17,8 +17,16 @@
         margin-top: 16px
 
     &__media
-        border: 1px solid var(--gray)
-        padding: 16px
+        background: rgba(255, 255, 255, 0.02)
+        border: 1px solid rgba(255, 255, 255, 0.1)
+        border-radius: 12px
+        padding: 24px
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1)
+
+        &:hover
+            background: rgba(255, 255, 255, 0.04)
+            border-color: var(--primary)
+            transform: translateY(-4px)
 
     &__description
         color: var(--gray)

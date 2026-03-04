@@ -3,7 +3,8 @@
         "home": "home",
         "projects": "projects",
         "about": "about-us",
-        "contacts": "contacts"
+        "contacts": "contacts",
+        "contact": "contact"
     },
     "footer": {
         "description": "Automation solutions and workflow optimization specialized in web tools",
@@ -42,6 +43,16 @@
             "name": "Data Processing and Reconciliation",
             "description": "Automations that perform validation, cleansing, reconciliation, transformation, and structured computation of datasets to ensure accuracy and consistency.",
             "fullDescription": "Automations that ensure that collected data is accurate, structured, and aligned with operational requirements. Automations within this layer perform cleansing, cross-verification, validation checks, filtering, computation, and reconciliation across multiple sources. This significantly reduces the risk of human error, improves data consistency, and strengthens compliance standards. By automating complex processing logic, the department ensures reliable outputs that can be confidently used for reporting, financial tracking, and operational decision-making."
+        },
+        "custom-gpts": {
+            "name": "Custom AI Agents & GPTs",
+            "description": "Tailored AI solutions designed to automate cognitive tasks, content generation, and intelligent data analysis using Large Language Models.",
+            "fullDescription": "Leveraging the power of Large Language Models (LLMs), we build custom AI agents and GPTs tailored to your specific business logic. These agents can handle complex reasoning, natural language understanding, and automated decision-making. Whether it's for internal support, automated reporting, or interactive customer engagement, our AI solutions bridge the gap between static automation and intelligent, adaptive workflows."
+        },
+        "telegram-mini-apps": {
+            "name": "Telegram Mini Apps",
+            "description": "Powerful, web-based applications that live entirely inside Telegram, providing a seamless user experience for tools and services.",
+            "fullDescription": "Telegram Mini Apps (TMA) transform the Telegram app into a versatile platform for business tools, games, and services. We develop responsive, high-performance web apps that integrate directly with the Telegram ecosystem. From automated bot interfaces to full-featured dashboards, our TMAs provide a friction-less experience for users to interact with your automation services without leaving their favorite messaging platform."
         }
     },
     "pages": {
@@ -84,7 +95,13 @@
             "small": "tools",
             "inProgress": "in-progress",
             "search": "Search projects...",
-            "searchBtn": "Search"
+            "searchBtn": "Search",
+            "summary": {
+                "projects_count": "Projects Completed",
+                "projects_count_sub": "Total solutions delivered",
+                "expertise_title": "Field Expertise",
+                "expertise_sub": "Across various domains"
+            }
         },
         "projectdetails": {
             "description": "Detailed project information and automation metrics"
@@ -112,6 +129,27 @@
         },
         "contacts": {
             "description": "How to contact us"
+        },
+        "contact": {
+            "title": "Business Enquiry",
+            "subtitle": "How can we collaborate?",
+            "action": "Let's discuss it.",
+            "description": "We welcome business enquiries from individuals and organizations alike. If you’re looking for creative digital solutions, we’d be happy to discuss how our team can support your goals and bring your ideas to life.",
+            "form": {
+                "name": "Full name*",
+                "name_placeholder": "Please enter your full name",
+                "company": "Company*",
+                "company_placeholder": "Please enter your company's name",
+                "email": "E-mail*",
+                "email_placeholder": "Please enter your email",
+                "phone": "Phone no.",
+                "phone_placeholder": "Please enter your phone number",
+                "subject": "Subject*",
+                "subject_placeholder": "Please enter your project name",
+                "message": "Message*",
+                "message_placeholder": "Please state the nature of your enquiry",
+                "submit": "Send Message"
+            }
         }
     }
 }

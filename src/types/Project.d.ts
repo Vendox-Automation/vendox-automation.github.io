@@ -8,5 +8,6 @@ export interface Project {
     techs: string[];
     hasImage?: boolean;
     isSmall?: boolean;
-    isInProgress?: boolean
+    isInProgress?: boolean;
+    fields?: string[];
 }

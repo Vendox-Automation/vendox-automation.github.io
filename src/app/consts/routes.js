@@ -11,6 +11,10 @@ export default {
         name: "projects",
         element: "Projects",
     },
+    "/contact": {
+        name: "contact",
+        element: "Contact",
+    },
 
     "/404": {
         name: "404",

@@ -4,7 +4,7 @@ export default (t) => {
             <div class="hero__content">
                 <h1 class="hero__title">${t.title}</h1>
                 <div class="hero__description">${t.description}</div>
-                <a class="button button__primary" href="#contacts">${t.button} =></a>
+                <a class="button button__primary" href="/contact">${t.button} =></a>
             </div>
             <div class="hero__illustrations">
                 <img src="/images/hero.png" alt="vendox-automation" class="hero__image">

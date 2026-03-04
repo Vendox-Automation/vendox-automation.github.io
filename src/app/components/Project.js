@@ -88,7 +88,7 @@ export default ({ id }, t) => {
     const { techs: projectTech, status, kpi } = project;
 
     return /*html*/ `
-        <div class="project" data-techs="${projectTech.join(',').toLowerCase()}" data-name="${t[id].name.toLowerCase()}">
+        <div class="project" data-techs="${projectTech.join(',').toLowerCase()}" data-name="${t[id].name.toLowerCase()}" data-fields="${(project.fields || []).join(',').toLowerCase()}">
 
             <div class="project__content">
                 <div class="project__header">

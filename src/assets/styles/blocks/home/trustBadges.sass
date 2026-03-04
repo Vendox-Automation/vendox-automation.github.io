@@ -6,9 +6,15 @@
         display: grid
         grid-template-columns: repeat(4, 1fr)
         gap: 24px
-        border: 1px solid var(--gray)
+        background: rgba(255, 255, 255, 0.02)
+        border: 1px solid rgba(255, 255, 255, 0.1)
+        border-radius: 12px
         padding: 32px
-        background: rgba(var(--primary-rgb), 0.05)
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1)
+
+        &:hover
+            background: rgba(255, 255, 255, 0.04)
+            border-color: var(--primary)
 
         @media (max-width: $tabletScreen)
             grid-template-columns: repeat(2, 1fr)

@@ -4,6 +4,9 @@ import startTitleAnimation from "./helpers/startTitleAnimation";
 import searchHandler from "./helpers/searchHandler";
 import replacePath from "./helpers/replacePath";
 import revealHandler from "./helpers/revealHandler";
+import counterHandler from "./helpers/counterHandler";
+import fieldFilterHandler from "./helpers/fieldFilterHandler";
+import contactFormHandler from "./helpers/contactFormHandler";
 
 import "styles/styles.sass";
 
@@ -63,6 +66,9 @@ async function render() {
         }
 
         revealHandler();
+        counterHandler();
+        fieldFilterHandler();
+        contactFormHandler();
 
         console.log("[Router] Render complete.");
 

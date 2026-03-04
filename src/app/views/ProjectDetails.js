@@ -84,22 +84,34 @@ export default (t, locale) => {
                 <div class="project-details__content">
                     <div class="project-details__top-layout">
                         <div class="project-details__main-info">
-                            <!-- Technical Stack -->
-                            <section class="project-details__section">
-                                <h2 class="h2 project-details__section-title">Technical Stack</h2>
-                                <div class="tech-list">
-                                    ${projectConfig.techs.map(tech => {
+                                <!-- Technical Stack -->
+                                <section class="project-details__section">
+                                    <h2 class="h2 project-details__section-title">Technical Stack</h2>
+                                    <div class="tech-list">
+                                        ${projectConfig.techs.map(tech => {
         const icon = getTechIcon(tech);
         const techName = techs[tech] || tech;
         return icon ? `
-                                            <div class="tech-item" title="${techName}">
-                                                <img src="${icon}" alt="${techName}" class="tech-icon">
-                                                <span>${techName}</span>
-                                            </div>
-                                        ` : '';
+                                                <div class="tech-item" title="${techName}">
+                                                    <img src="${icon}" alt="${techName}" class="tech-icon">
+                                                    <span>${techName}</span>
+                                                </div>
+                                            ` : '';
     }).join('')}
-                                </div>
-                            </section>
+                                    </div>
+                                </section>
+
+                                <!-- Related Fields -->
+                                ${projectConfig.fields ? `
+                                <section class="project-details__section">
+                                    <h2 class="h2 project-details__section-title">Related Fields</h2>
+                                    <div class="project-details__fields">
+                                        ${projectConfig.fields.map(field => `
+                                            <span class="field-tag">${field}</span>
+                                        `).join('')}
+                                    </div>
+                                </section>
+                                ` : ''}
 
                             <!-- Overview -->
                             <section class="project-details__section">
