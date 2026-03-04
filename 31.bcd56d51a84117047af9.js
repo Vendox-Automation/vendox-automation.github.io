@@ -1,5 +1,5 @@
 "use strict";
-(self["webpackChunkportfolio"] = self["webpackChunkportfolio"] || []).push([[847],{
+(self["webpackChunkportfolio"] = self["webpackChunkportfolio"] || []).push([[31],{
 
 /***/ 778
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
@@ -156,7 +156,7 @@ function getTechIcon(tech) {
     const { techs: projectTech, status, kpi } = project;
 
     return /*html*/ `
-        <div class="project" data-techs="${projectTech.join(',').toLowerCase()}" data-name="${t[id].name.toLowerCase()}">
+        <div class="project" data-techs="${projectTech.join(',').toLowerCase()}" data-name="${t[id].name.toLowerCase()}" data-fields="${(project.fields || []).join(',').toLowerCase()}">
 
             <div class="project__content">
                 <div class="project__header">
@@ -231,6 +231,7 @@ const projects = [
         id: "data-upload",
         status: "AUTOMATED",
         techs: ["excel", "sheets"],
+        fields: ["Admin", "Account", "Operation", "Finance", "Marketing"],
         links: {},
         stats: { manual: 60, automated: 2 },
         flow: {
@@ -252,6 +253,7 @@ const projects = [
         id: "data-collection",
         status: "AUTOMATED",
         techs: ["chrome", "telegram", "facebook"],
+        fields: ["Admin", "Operation", "Marketing", "Data Analyst"],
         links: {},
         stats: { manual: 480, automated: 15 },
         flow: {
@@ -270,6 +272,7 @@ const projects = [
         id: "scheduling",
         status: "AUTOMATED",
         techs: ["chrome", "telegram"],
+        fields: ["Operation", "Marketing", "Admin"],
         links: {},
         stats: { manual: 120, automated: 5 },
         flow: {
@@ -288,6 +291,7 @@ const projects = [
         id: "monitoring",
         status: "AUTOMATED",
         techs: ["chrome", "telegram"],
+        fields: ["Admin", "Operation", "Account", "Finance"],
         links: {},
         stats: { manual: 30, automated: 0.5 },
         flow: {
@@ -305,6 +309,7 @@ const projects = [
         id: "data-processing",
         status: "AUTOMATED",
         techs: ["excel", "sheets"],
+        fields: ["Admin", "Account", "Finance", "Operation", "Tester"],
         links: {},
         stats: { manual: 180, automated: 10 },
         flow: {
@@ -319,6 +324,43 @@ const projects = [
                 { text: "Final reconciled report generation", time: "3 min" }
             ]
         }
+    },
+    {
+        id: "custom-gpts",
+        status: "AUTOMATED",
+        techs: ["openai", "chrome"],
+        fields: ["Operation", "Admin", "Marketing", "Customer Service"],
+        links: {},
+        stats: { manual: 240, automated: 5 },
+        flow: {
+            before: [
+                { text: "Manual search for information and documentation", time: "60 min" },
+                { text: "Repetitive writing and formatting of content", time: "120 min" },
+                { text: "Manual sorting of complex datasets", time: "60 min" }
+            ],
+            after: [
+                { text: "Single prompt execution via AI Agent", time: "2 min" },
+                { text: "Instant analysis and structured generation", time: "3 min" }
+            ]
+        }
+    },
+    {
+        id: "telegram-mini-apps",
+        status: "AUTOMATED",
+        techs: ["telegram", "chrome"],
+        fields: ["Operation", "Admin", "Customer Service"],
+        links: {},
+        stats: { manual: 180, automated: 8 },
+        flow: {
+            before: [
+                { text: "Complex user interaction via static bot", time: "60 min" },
+                { text: "Manual data input in external portals", time: "120 min" }
+            ],
+            after: [
+                { text: "Direct task execution inside Telegram app", time: "5 min" },
+                { text: "Seamless dashboard sync and automation", time: "3 min" }
+            ]
+        }
     }
 ];
 
@@ -327,23 +369,82 @@ const projects = [
 
 /***/ },
 
-/***/ 847
+/***/ 31
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _components_Path_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(778);
-/* harmony import */ var _components_ProjectList_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(340);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": () => (/* binding */ Projects)
+});
+
+// EXTERNAL MODULE: ./src/app/components/Path.js
+var Path = __webpack_require__(778);
+// EXTERNAL MODULE: ./src/app/components/ProjectList.js + 1 modules
+var ProjectList = __webpack_require__(340);
+// EXTERNAL MODULE: ./src/app/consts/projects.js
+var projects = __webpack_require__(635);
+;// ./src/app/components/Summary.js
 
 
+/* harmony default export */ const Summary = ((t) => {
+    const activeProjects = projects/* default */.A.filter(p => !p.isInProgress);
+    const totalProjects = 30;
 
+    // Extract unique fields from all projects
+    const fields = [...new Set(activeProjects.flatMap(p => p.fields || []).filter(Boolean))];
 
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((t, t2) => {
     return /*html*/ `
-        ${(0,_components_Path_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A)({ description: t.description })}
-        ${(0,_components_ProjectList_js__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)({ filter: (p) => !p.isInProgress }, t2.projects)}
+        <div class="section-reveal">
+            <div class="summary-container-dual">
+                <div class="summary-box summary-box--count">
+                    <div class="summary-box__content">
+                        <div class="summary-box__number" data-count="${totalProjects}">0</div>
+                        <div class="summary-box__title">${t.projects_count}</div>
+                        <div class="summary-box__subtitle">${t.projects_count_sub}</div>
+                    </div>
+                    <div class="summary-box__icon">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="summary-box summary-box--fields">
+                <div class="summary-box__content">
+                    <div class="summary-box__title">${t.expertise_title}</div>
+                    <div class="summary-box__subtitle">${t.expertise_sub}</div>
+                    <div class="summary-box__tags">
+                        ${fields.map((field, index) => `<span class="summary-box__tag" style="--delay: ${index}">${field}</span>`).join('')}
+                    </div>
+                </div>
+                <div class="summary-box__icon">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5"></path>
+                        <path d="M2 12l10 5 10-5"></path>
+                    </svg>
+                </div>
+            </div>
+            </div>
+        </div>
+    `;
+});
+
+;// ./src/app/views/Projects.js
+
+
+
+
+
+
+/* harmony default export */ const Projects = ((t, t2) => {
+    return /*html*/ `
+        ${(0,Path/* default */.A)({ description: t.description })}
+        <div class="projects-content">
+            ${Summary(t.summary)}
+            ${(0,ProjectList/* default */.A)({ filter: (p) => !p.isInProgress }, t2.projects)}
+        </div>
     `;
 });
 

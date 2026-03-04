@@ -76,6 +76,10 @@ const media_media = {
         name: "projects",
         element: "Projects",
     },
+    "/contact": {
+        name: "contact",
+        element: "Contact",
+    },
 
     "/404": {
         name: "404",
@@ -204,7 +208,7 @@ var media = __webpack_require__(934);
                                 <img src="/images/logo.webp" alt="logo" class="logo__img">
                                 <div class="logo__name">vendox-automation</div>
                             </div>
-                            <a class="footer__email" href="${media/* default */.A.email}">${media/* default */.A.emailRaw}</a>
+                            <a class="footer__email" href="/contact">${media/* default */.A.emailRaw}</a>
                         </div>
 
                         <p class="footer__description">${t.description}</p>
@@ -224,7 +228,7 @@ var routes = __webpack_require__(739);
 
 
 
-const paths = ["/", "/projects"]
+const paths = ["/", "/projects", "/contact"]
 
 /* harmony default export */ const Header = ((t) => {
     return /*html*/ `
@@ -300,6 +304,18 @@ async function getLocale() {
 (module, __unused_webpack_exports, __webpack_require__) {
 
 var map = {
+	"./Contact": [
+		469,
+		[
+			469
+		]
+	],
+	"./Contact.js": [
+		469,
+		[
+			469
+		]
+	],
 	"./Contacts": [
 		960,
 		[
@@ -357,25 +373,29 @@ var map = {
 		]
 	],
 	"./Projects": [
-		847,
+		31,
 		[
-			847
+			31
 		]
 	],
 	"./Projects.js": [
-		847,
+		31,
 		[
-			847
+			31
 		]
 	]
 };
 function webpackAsyncContext(req) {
-	if(!__webpack_require__.o(map, req)) {
-		return Promise.resolve().then(() => {
+	try {
+		if(!__webpack_require__.o(map, req)) {
+			return Promise.resolve().then(() => {
 	var e = new Error("Cannot find module '" + req + "'");
 	e.code = 'MODULE_NOT_FOUND';
 	throw e;
 });
+		}
+	} catch(err) {
+		return Promise.reject(err);
 	}
 
 	var ids = map[req], id = ids[0];
@@ -447,7 +467,7 @@ module.exports = webpackAsyncContext;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "" + chunkId + "." + {"245":"5e5e41e153e77044b517","573":"0052a9a5ba65859a2062","847":"d792cc923b7fc9bc0209","864":"175525fed4b0e91b338b","960":"10c4a5b4ab84c3ae58ac"}[chunkId] + ".js";
+/******/ 			return "" + chunkId + "." + {"31":"bcd56d51a84117047af9","245":"e1af0024be51880cc57a","469":"3713304311979dff6d1f","573":"0052a9a5ba65859a2062","864":"8a62d1f7bceeab17f530","960":"10c4a5b4ab84c3ae58ac"}[chunkId] + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -456,7 +476,7 @@ module.exports = webpackAsyncContext;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.miniCssF = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "" + chunkId + "." + {"245":"cd7d529936eba7d4c9b5","847":"b07705a007b4e8386723","864":"d7172da40d65e056ab2a"}[chunkId] + ".css";
+/******/ 			return "" + chunkId + "." + {"31":"78055c8251da7a246e5c","245":"9928fa328e4bf0d93fdd","469":"a69fa155571a21620b99","864":"219a27a46889634a2290"}[chunkId] + ".css";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -582,7 +602,7 @@ module.exports = webpackAsyncContext;
 /******/ 		};
 /******/ 		
 /******/ 		__webpack_require__.f.miniCss = (chunkId, promises) => {
-/******/ 			var cssChunks = {"245":1,"847":1,"864":1};
+/******/ 			var cssChunks = {"31":1,"245":1,"469":1,"864":1};
 /******/ 			if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 			else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 				promises.push(installedCssChunks[chunkId] = loadStylesheet(chunkId).then(() => {
@@ -823,7 +843,171 @@ var techs = __webpack_require__(928);
     sections.forEach(section => observer.observe(section));
 });
 
+;// ./src/app/helpers/counterHandler.js
+/* harmony default export */ const counterHandler = (() => {
+    const counters = document.querySelectorAll('[data-count]');
+
+    const countUp = (element) => {
+        const target = +element.getAttribute('data-count');
+        const duration = 2000; // 2 seconds
+        const stepTime = 50;
+        const steps = duration / stepTime;
+        const increment = target / steps;
+        let current = 0;
+
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                element.innerText = target;
+                clearInterval(timer);
+            } else {
+                element.innerText = Math.floor(current);
+            }
+        }, stepTime);
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                countUp(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => observer.observe(counter));
+});
+
+;// ./src/app/helpers/fieldFilterHandler.js
+/* harmony default export */ const fieldFilterHandler = (() => {
+    const tags = document.querySelectorAll('.summary-box__tag');
+    const projects = document.querySelectorAll('.project');
+    const countBox = document.querySelector('.summary-box--count');
+    const searchInput = document.querySelector('.filter-bar__input');
+
+    if (!projects.length) return;
+
+    function resetFilters() {
+        tags.forEach(t => t.classList.remove('is-active'));
+        projects.forEach(p => {
+            p.style.display = 'flex';
+            p.style.animation = 'none';
+            p.offsetHeight;
+            p.style.animation = '';
+        });
+        if (searchInput) searchInput.value = '';
+    }
+
+    if (countBox) {
+        countBox.style.cursor = 'pointer';
+        countBox.addEventListener('click', resetFilters);
+    }
+
+    tags.forEach(tag => {
+        tag.addEventListener('click', (e) => {
+            const field = tag.innerText.toLowerCase().trim();
+            const isActive = tag.classList.contains('is-active');
+
+            // Reset all tags
+            tags.forEach(t => t.classList.remove('is-active'));
+
+            if (isActive) {
+                resetFilters();
+            } else {
+                // Activate filter
+                tag.classList.add('is-active');
+
+                projects.forEach(p => {
+                    const projectFields = (p.getAttribute('data-fields') || '').split(',');
+                    const matches = projectFields.some(f => f.trim() === field);
+
+                    if (matches) {
+                        p.style.display = 'flex';
+                        p.style.animation = 'none';
+                        p.offsetHeight;
+                        p.style.animation = '';
+                    } else {
+                        p.style.display = 'none';
+                    }
+                });
+
+                if (searchInput) {
+                    searchInput.value = tag.innerText.trim();
+                }
+            }
+        });
+    });
+});
+
+;// ./src/app/helpers/contactFormHandler.js
+/* harmony default export */ const contactFormHandler = (() => {
+    const form = document.querySelector('.contact-form');
+    if (!form) return;
+
+    const btn = form.querySelector('.button--submit');
+    const btnText = btn.querySelector('.button-text');
+    const btnLoader = btn.querySelector('.button-loader');
+    const btnSuccess = btn.querySelector('.button-success');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // 1. Show Loading State
+        btn.disabled = true;
+        btnText.style.display = 'none';
+        btnLoader.style.display = 'inline';
+
+        // 2. Prepare Data
+        const formData = new FormData(form);
+        const data = {
+            "Full Name": formData.get('name'),
+            "Company": formData.get('company'),
+            "E-mail": formData.get('email'),
+            "Phone": formData.get('phone') || 'Not provided',
+            "Subject (Project)": formData.get('subject'),
+            "Message": formData.get('message'),
+            "_template": "table",
+            "_subject": `New Business Enquiry: ${formData.get('subject')}`
+        };
+
+        try {
+            // 3. Send AJAX Request to FormSubmit
+            const response = await fetch("https://formsubmit.co/ajax/dummypoerr@gmail.com", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                // 4. Show Success State
+                btnLoader.style.display = 'none';
+                btnSuccess.style.display = 'inline';
+                form.reset();
+
+                setTimeout(() => {
+                    btnSuccess.style.display = 'none';
+                    btnText.style.display = 'inline';
+                    btn.disabled = false;
+                }, 5000);
+            } else {
+                throw new Error();
+            }
+        } catch (error) {
+            alert("Oops! Something went wrong. Please try emailing us directly at dummypoerr@gmail.com");
+            btnLoader.style.display = 'none';
+            btnText.style.display = 'inline';
+            btn.disabled = false;
+        }
+    });
+});
+
 ;// ./src/app/index.js
+
+
+
 
 
 
@@ -889,6 +1073,9 @@ async function render() {
         }
 
         revealHandler();
+        counterHandler();
+        fieldFilterHandler();
+        contactFormHandler();
 
         console.log("[Router] Render complete.");
 

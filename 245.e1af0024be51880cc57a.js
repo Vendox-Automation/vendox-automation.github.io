@@ -111,7 +111,7 @@ function getTechIcon(tech) {
     const { techs: projectTech, status, kpi } = project;
 
     return /*html*/ `
-        <div class="project" data-techs="${projectTech.join(',').toLowerCase()}" data-name="${t[id].name.toLowerCase()}">
+        <div class="project" data-techs="${projectTech.join(',').toLowerCase()}" data-name="${t[id].name.toLowerCase()}" data-fields="${(project.fields || []).join(',').toLowerCase()}">
 
             <div class="project__content">
                 <div class="project__header">
@@ -186,6 +186,7 @@ const projects = [
         id: "data-upload",
         status: "AUTOMATED",
         techs: ["excel", "sheets"],
+        fields: ["Admin", "Account", "Operation", "Finance", "Marketing"],
         links: {},
         stats: { manual: 60, automated: 2 },
         flow: {
@@ -207,6 +208,7 @@ const projects = [
         id: "data-collection",
         status: "AUTOMATED",
         techs: ["chrome", "telegram", "facebook"],
+        fields: ["Admin", "Operation", "Marketing", "Data Analyst"],
         links: {},
         stats: { manual: 480, automated: 15 },
         flow: {
@@ -225,6 +227,7 @@ const projects = [
         id: "scheduling",
         status: "AUTOMATED",
         techs: ["chrome", "telegram"],
+        fields: ["Operation", "Marketing", "Admin"],
         links: {},
         stats: { manual: 120, automated: 5 },
         flow: {
@@ -243,6 +246,7 @@ const projects = [
         id: "monitoring",
         status: "AUTOMATED",
         techs: ["chrome", "telegram"],
+        fields: ["Admin", "Operation", "Account", "Finance"],
         links: {},
         stats: { manual: 30, automated: 0.5 },
         flow: {
@@ -260,6 +264,7 @@ const projects = [
         id: "data-processing",
         status: "AUTOMATED",
         techs: ["excel", "sheets"],
+        fields: ["Admin", "Account", "Finance", "Operation", "Tester"],
         links: {},
         stats: { manual: 180, automated: 10 },
         flow: {
@@ -272,6 +277,43 @@ const projects = [
                 { text: "Automated document fetcher engine", time: "2 min" },
                 { text: "Logic processor applies filters instantly", time: "5 min" },
                 { text: "Final reconciled report generation", time: "3 min" }
+            ]
+        }
+    },
+    {
+        id: "custom-gpts",
+        status: "AUTOMATED",
+        techs: ["openai", "chrome"],
+        fields: ["Operation", "Admin", "Marketing", "Customer Service"],
+        links: {},
+        stats: { manual: 240, automated: 5 },
+        flow: {
+            before: [
+                { text: "Manual search for information and documentation", time: "60 min" },
+                { text: "Repetitive writing and formatting of content", time: "120 min" },
+                { text: "Manual sorting of complex datasets", time: "60 min" }
+            ],
+            after: [
+                { text: "Single prompt execution via AI Agent", time: "2 min" },
+                { text: "Instant analysis and structured generation", time: "3 min" }
+            ]
+        }
+    },
+    {
+        id: "telegram-mini-apps",
+        status: "AUTOMATED",
+        techs: ["telegram", "chrome"],
+        fields: ["Operation", "Admin", "Customer Service"],
+        links: {},
+        stats: { manual: 180, automated: 8 },
+        flow: {
+            before: [
+                { text: "Complex user interaction via static bot", time: "60 min" },
+                { text: "Manual data input in external portals", time: "120 min" }
+            ],
+            after: [
+                { text: "Direct task execution inside Telegram app", time: "5 min" },
+                { text: "Seamless dashboard sync and automation", time: "3 min" }
             ]
         }
     }
@@ -298,7 +340,7 @@ __webpack_require__.d(__webpack_exports__, {
             <div class="hero__content">
                 <h1 class="hero__title">${t.title}</h1>
                 <div class="hero__description">${t.description}</div>
-                <a class="button button__primary" href="#contacts">${t.button} =></a>
+                <a class="button button__primary" href="/contact">${t.button} =></a>
             </div>
             <div class="hero__illustrations">
                 <img src="/images/hero.png" alt="vendox-automation" class="hero__image">
@@ -377,12 +419,9 @@ var media = __webpack_require__(934);
 
 const contacts = [
     {
-        name: "discord",
-        text: media/* default */.A.discordTag,
-    },
-    {
         name: "email",
-        text: media/* default */.A.emailRaw,
+        text: "contact@vendox-automation.com",
+        link: "/contact"
     }
 ];
 
@@ -398,7 +437,7 @@ const contacts = [
                         ${contacts
             .map(
                 (contact) => /*html*/ `
-                            <a class="contact" href="${media/* default */.A[contact.name]}">
+                            <a class="contact" href="${contact.link || media/* default */.A[contact.name]}">
                                 <img src="/images/icons/${contact.name
                     }.svg" alt="">
                                 <div class="contact__name">${contact.text}</div>
