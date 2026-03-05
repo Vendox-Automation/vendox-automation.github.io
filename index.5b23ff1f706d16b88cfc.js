@@ -972,7 +972,7 @@ var techs = __webpack_require__(928);
 
         try {
             // 3. Send AJAX Request to FormSubmit
-            const response = await fetch("https://formsubmit.co/ajax/dummypoerr@gmail.com", {
+            const response = await fetch("https://formsubmit.co/ajax/bryan@4896.co", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
